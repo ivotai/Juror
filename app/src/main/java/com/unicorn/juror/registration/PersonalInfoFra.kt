@@ -23,15 +23,19 @@ class PersonalInfoFra : BaseFra() {
             setColor(Color.WHITE)
             setStroke(1, Color.parseColor("#d3d4d2"))
             cornerRadius = radii
-        }.let { listOf(llName, llSex, llAge, llBirthday)
-                        .forEach { linearLayout -> linearLayout.background = it } }
+        }.let {
+                    listOf(llName, llSex, llAge, llBirthday, llNativePlace, llNation, llIdentityCard, llMaritalStatus, llTelephone)
+                            .forEach { linearLayout -> linearLayout.background = it }
+                }
 
         GradientDrawable().apply {
             setColor(Color.parseColor("#eeeeee"))
             setStroke(1, Color.parseColor("#d3d4d2"))
             cornerRadii = floatArrayOf(radii, radii, 0f, 0f, 0f, 0f, radii, radii)
-        }.let { listOf(tvName, tvSex, tvAge, tvBirthday)
-                        .forEach { textView -> textView.background = it } }
+        }.let {
+                    listOf(tvName, tvSex, tvAge, tvBirthday, tvNativePlace, tvNation, tvIdentityCard, tvMaritalStatus, tvTelephone)
+                            .forEach { textView -> textView.background = it }
+                }
 
     }
 
