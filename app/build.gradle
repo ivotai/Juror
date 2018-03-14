@@ -47,6 +47,7 @@ dependencies {
     implementation "com.mikepenz:iconics-core:3.0.3@aar"
     implementation 'com.mikepenz:ionicons-typeface:2.0.1.4@aar'
     implementation 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
 }
 kapt {
     generateStubs = true

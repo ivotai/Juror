@@ -1,4 +1,4 @@
-package com.unicorn.juror
+package com.unicorn.juror.app
 
 import android.widget.TextView
 import com.jakewharton.rxbinding2.view.RxView
