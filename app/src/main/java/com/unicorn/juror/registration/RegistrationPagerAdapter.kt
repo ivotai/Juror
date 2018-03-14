@@ -10,7 +10,7 @@ class RegistrationPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(
     private val titles = listOf("个人信息", "进度查询")
 
     override fun getItem(position: Int): Fragment {
-        return NewsFra()
+        return if(position==0) PersonalInfoFra() else NewsFra()
     }
 
     override fun getCount() = titles.size
