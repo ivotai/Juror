@@ -7,10 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.ionicons_typeface_library.Ionicons
-import com.unicorn.juror.MainAct
 import com.unicorn.juror.R
 import com.unicorn.juror.app.clicks
 import com.unicorn.juror.dagger.ComponentHolder
+import com.unicorn.juror.main.MainAct
 import kotlinx.android.synthetic.main.act_login.*
 
 class LoginAct : AppCompatActivity(), LoginView {
@@ -33,24 +33,26 @@ class LoginAct : AppCompatActivity(), LoginView {
     // todo rxlifecycle
     @SuppressLint("CheckResult")
     private fun login() {
-        repo.login().subscribe {
-            when {
-                it.isLoading() -> {
-                    showLoading()
-                }
-                it.isError() -> {
-                    hideLoading()
-
-                }
-                it.isSuccess() -> {
-                    hideLoading()
-
-//                    tieAdapter.setNewData(it.data)
-                    Intent(this, MainAct::class.java).apply {
-                        startActivity(this)
-                    }
-                }
-            }
+        Intent(this, MainAct::class.java).apply {
+            startActivity(this)
+//        repo.login().subscribe {
+//            when {
+//                it.isLoading() -> {
+//                    showLoading()
+//                }
+//                it.isError() -> {
+//                    hideLoading()
+//
+//                }
+//                it.isSuccess() -> {
+//                    hideLoading()
+//
+////                    tieAdapter.setNewData(it.data)
+//                    Intent(this, MainAct::class.java).apply {
+//                        startActivity(this)
+//                    }
+//                }
+//            }
         }
     }
 
