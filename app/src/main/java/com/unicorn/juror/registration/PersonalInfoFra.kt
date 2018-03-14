@@ -5,8 +5,11 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import com.blankj.utilcode.util.ConvertUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.juror.R
 import com.unicorn.juror.app.BaseFra
+import com.unicorn.juror.app.clicks
+import com.unicorn.juror.bottomSheet.BottomSheetUtils
 import kotlinx.android.synthetic.main.fra_personal_info.*
 
 class PersonalInfoFra : BaseFra() {
@@ -37,6 +40,16 @@ class PersonalInfoFra : BaseFra() {
                             .forEach { textView -> textView.background = it }
                 }
 
+        tvName.clicks().subscribe { showBottomSheet() }
     }
+
+    private fun showBottomSheet() {
+        BottomSheetUtils.show(context!!, "选择婚姻状况", listOf("已婚", "未婚"), object : BottomSheetUtils.PickerListener {
+            override fun onConfirm(o: Any) {
+                ToastUtils.showShort(o.toString())
+            }
+        })
+    }
+
 
 }
