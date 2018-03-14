@@ -1,4 +1,4 @@
-package com.unicorn.juror.login
+package com.unicorn.juror.login.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
