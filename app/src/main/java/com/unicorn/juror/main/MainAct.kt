@@ -2,42 +2,52 @@ package com.unicorn.juror.main
 
 import android.graphics.Color
 import android.os.Bundle
+import com.mikepenz.iconics.IconicsDrawable
+import com.mikepenz.iconics.typeface.IIcon
+import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.unicorn.juror.R
 import com.unicorn.juror.app.BaseAct
 import kotlinx.android.synthetic.main.act_main.*
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem
-import me.majiajie.pagerbottomtabstrip.item.NormalItemView
-
+import me.majiajie.pagerbottomtabstrip.item.NormalItemView2
 
 
 class MainAct : BaseAct() {
+
+    private val defautColor = Color.parseColor("#aeaeae")
+    private val checkedColor = Color.parseColor("#d74c46")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_main)
 
-
         val navigationController = tab.custom()
-                .addItem(newItem(R.mipmap.iphone, R.mipmap.iphone2,"iphone"))
-                .addItem(newItem(R.mipmap.android, R.mipmap.android2,"iphone"))
-
-//                .addItem(R.mipmap.android, "android")
-//                .addItem(R.mipmap.ipad, "ipad")
-//                .addItem(R.mipmap.iphone, "iphone")
-//                .addItem(R.mipmap.tablet, "tablet")
-//                .addItem(R.mipmap.touchscreen, "touchscreen")
+                .addItem(newItem(Ionicons.Icon.ion_fireball, Ionicons.Icon.ion_fireball, "热点资讯"))
+                .addItem(newItem(Ionicons.Icon.ion_university, Ionicons.Icon.ion_university, "报名申请"))
+                .addItem(newItem(Ionicons.Icon.ion_ios_people, Ionicons.Icon.ion_ios_people, "互动专区"))
+                .addItem(newItem(Ionicons.Icon.ion_ios_bookmarks, Ionicons.Icon.ion_ios_bookmarks, "教育培训"))
+                .addItem(newItem(Ionicons.Icon.ion_android_person, Ionicons.Icon.ion_android_person, "个人业务"))
                 .build()
         navigationController.setupWithViewPager(viewPager)
-        viewPager.offscreenPageLimit = 5-1
+        viewPager.offscreenPageLimit = 5 - 1
         viewPager.adapter = MainPagerAdapter(supportFragmentManager)
     }
 
     //创建一个Item
-    private fun newItem(drawable: Int, checkedDrawable: Int, text: String): BaseTabItem {
-        val normalItemView = NormalItemView(this)
-        normalItemView.initialize(drawable, checkedDrawable, text)
-        normalItemView.setTextDefaultColor(Color.GRAY)
-        normalItemView.setTextCheckedColor(-0xff6978)
+    private fun newItem(default: IIcon, checked: IIcon, text: String): BaseTabItem {
+        val normalItemView = NormalItemView2(this)
+        normalItemView.initialize(
+                IconicsDrawable(this)
+                        .icon(default)
+                        .color(defautColor)
+                        .sizeDp(24),
+                IconicsDrawable(this)
+                        .icon(checked)
+                        .color(checkedColor)
+                        .sizeDp(24),
+                text)
+        normalItemView.setTextDefaultColor(defautColor)
+        normalItemView.setTextCheckedColor(checkedColor)
         return normalItemView
     }
 

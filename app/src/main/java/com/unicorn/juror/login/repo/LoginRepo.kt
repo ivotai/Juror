@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class LoginRepo @Inject constructor(private val api: LoginApi) {
 
-    fun login() = api.login()
+    fun login() = api.login("","")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .map { ViewState(data = it) }
