@@ -19,6 +19,9 @@ class LoginAct : AppCompatActivity(), LoginView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_login)
 
+        etUsername.setText("61010019600501023x")
+        etPassword.setText("0000")
+
         setIconLeft()
         bindIntent()
     }

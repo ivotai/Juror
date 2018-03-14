@@ -14,7 +14,7 @@ import me.majiajie.pagerbottomtabstrip.item.NormalItemView2
 
 class MainAct : BaseAct() {
 
-    private val defautColor = Color.parseColor("#aeaeae")
+    private val defaultColor = Color.parseColor("#aeaeae")
     private val checkedColor = Color.parseColor("#d74c46")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,14 +39,14 @@ class MainAct : BaseAct() {
         normalItemView.initialize(
                 IconicsDrawable(this)
                         .icon(default)
-                        .color(defautColor)
+                        .color(defaultColor)
                         .sizeDp(24),
                 IconicsDrawable(this)
                         .icon(checked)
                         .color(checkedColor)
                         .sizeDp(24),
                 text)
-        normalItemView.setTextDefaultColor(defautColor)
+        normalItemView.setTextDefaultColor(defaultColor)
         normalItemView.setTextCheckedColor(checkedColor)
         return normalItemView
     }
