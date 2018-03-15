@@ -5,12 +5,14 @@
     android:layout_height="56dp">
 
     <com.mikepenz.iconics.view.IconicsTextView
+        android:visibility="invisible"
         android:id="@+id/itvAction"
+        android:gravity="center"
         android:text="{ion-ios-arrow-left}"
         android:textColor="@color/md_white"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:textSize="16sp"/>
+        android:textSize="30dp"/>
 
     <TextView
         android:id="@+id/tvTitle"

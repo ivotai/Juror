@@ -21,6 +21,7 @@ class LoginAct : BaseAct() {
     override val layoutID = R.layout.act_login
 
     override fun initViews() {
+        appBar.setTitle("登录")
         etUsername.setText("61010019600501023x")
         etPassword.setText("0000")
         setIcons()

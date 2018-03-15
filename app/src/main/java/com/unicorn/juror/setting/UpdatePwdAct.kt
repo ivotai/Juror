@@ -30,7 +30,10 @@ class UpdatePwdAct : BaseAct() {
     private fun updatePassword() {
         var mask: MaterialDialog? = null
         ComponentHolder.appComponent.getLoginApi()
-                .updatePwd(AllTime.userInfo.loginName, etOldPwd.text.toString(), etNewPwd.text.toString())
+                .updatePwd(id = AllTime.userInfo.id,
+                        username = AllTime.userInfo.loginName,
+                        oldPwd = etOldPwd.text.toString(),
+                        newPwd = etNewPwd.text.toString())
                 .default()
                 .subscribe {
                     when {

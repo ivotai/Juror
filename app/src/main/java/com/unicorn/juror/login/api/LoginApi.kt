@@ -12,7 +12,7 @@ interface LoginApi {
     fun login(@Query("username") username: String, @Query("password") password: String): Observable<Response<UserInfo>>
 
     @POST("login/userUpPassword")
-    fun updatePwd(@Query("username") username: String, @Query("oldpassword") oldPwd: String,
+    fun updatePwd(@Query("id") id: String, @Query("username") username: String, @Query("oldpassword") oldPwd: String,
                   @Query("newpassword") newPwd: String): Observable<Response<UserInfo>>
 
 
