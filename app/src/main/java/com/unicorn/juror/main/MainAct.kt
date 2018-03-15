@@ -1,13 +1,17 @@
 package com.unicorn.juror.main
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import com.afollestad.materialdialogs.MaterialDialog
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.IIcon
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.unicorn.juror.R
 import com.unicorn.juror.app.BaseAct
+import com.unicorn.juror.login.ui.LoginAct
 import com.unicorn.juror.main.navigationView.HeaderView
+import com.unicorn.juror.setting.UpdatePwdAct
 import kotlinx.android.synthetic.main.act_main.*
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView2
@@ -34,6 +38,27 @@ class MainAct : BaseAct() {
         viewPager.adapter = MainPagerAdapter(supportFragmentManager)
 
         navigation.addHeaderView(HeaderView(context = this))
+        navigation.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.navItem1 -> logout()
+                R.id.navItem2 -> Intent(this@MainAct, UpdatePwdAct::class.java).apply {
+                    startActivity(this)
+                }
+            }
+            return@setNavigationItemSelectedListener true
+        }
+    }
+
+    private fun logout() {
+        MaterialDialog.Builder(this)
+                .title("确认登出")
+                .positiveText("确认")
+                .negativeText("取消")
+                .onPositive { _, _ ->
+                    finish()
+                    Intent(this, LoginAct::class.java).let { startActivity(it) }
+                }
+                .show()
     }
 
     private fun newItem(default: IIcon, checked: IIcon, text: String): BaseTabItem {

@@ -15,4 +15,11 @@ class LoginRepo @Inject constructor(private val api: LoginApi) {
             .onErrorReturn { ViewState(error = it) }
             .startWith(ViewState())
 
+    fun updatePassword(username: String, oldPwd: String,newPwd:String) = api.updatePassword(username,oldPwd,newPwd)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map { ViewState(response = it) }
+            .onErrorReturn { ViewState(error = it) }
+            .startWith(ViewState())
+
 }

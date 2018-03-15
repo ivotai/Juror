@@ -46,9 +46,9 @@ class LoginAct : BaseAct(), LoginView {
                         }
                         it.isError() -> {
                             hideLoading()
-                            Intent(this, MainAct::class.java).apply {
-                                startActivity(this)
-                            }
+//                            Intent(this, MainAct::class.java).apply {
+//                                startActivity(this)
+//                            }
                         }
                         it.isSuccess() -> {
                             hideLoading()

@@ -13,15 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".login.ui.LoginAct">
-
-        </activity>
-        <activity android:name=".main.MainAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".main.MainAct">
+
+        </activity>
+        <activity android:name=".setting.UpdatePwdAct"></activity>
     </application>
 
 </manifest>
