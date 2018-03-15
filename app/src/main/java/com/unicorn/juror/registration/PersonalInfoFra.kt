@@ -36,11 +36,11 @@ class PersonalInfoFra : BaseFra() {
             setStroke(1, Color.parseColor("#d3d4d2"))
             cornerRadii = floatArrayOf(radii, radii, 0f, 0f, 0f, 0f, radii, radii)
         }.let {
-                    listOf(tvName, tvSex, tvAge, tvBirthday, tvNativePlace, tvNation, tvIdentityCard, tvMaritalStatus, tvTelephone)
+                    listOf(lName, lSex, tvAge, lBirthday, lNativePlace, lNation, lIdentityCard, tvMaritalStatus, lTelephone)
                             .forEach { textView -> textView.background = it }
                 }
 
-        tvName.clicks().subscribe { showBottomSheet() }
+        lName.clicks().subscribe { showBottomSheet() }
     }
 
     private fun showBottomSheet() {

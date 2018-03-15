@@ -19,7 +19,7 @@ class HeaderView : FrameLayout {
     init {
         val view = LayoutInflater.from(context).inflate(R.layout.navigation_header, this)
 
-        val tvName = view.findViewById<TextView>(R.id.tvName)
+        val tvName = view.findViewById<TextView>(R.id.lName)
         GradientDrawable().apply {
             cornerRadius = 1000f
             setColor(Color.parseColor("#1063b4"))

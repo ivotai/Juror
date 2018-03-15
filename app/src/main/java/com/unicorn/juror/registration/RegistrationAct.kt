@@ -1,10 +1,15 @@
 package com.unicorn.juror.registration
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.juror.R
 import com.unicorn.juror.app.BaseAct
+import com.unicorn.juror.app.clicks
+import com.unicorn.juror.bottomSheet.BottomSheetUtils
+import com.unicorn.juror.registration.nation.Label
+import com.unicorn.juror.registration.nation.Nation
 import kotlinx.android.synthetic.main.act_registration.*
 
 class RegistrationAct : BaseAct() {
@@ -22,7 +27,7 @@ class RegistrationAct : BaseAct() {
             setStroke(1, Color.parseColor("#d3d4d2"))
             cornerRadius = radii
         }.let {
-                    listOf(llName, llSex, llNativePlace, llNation,llBirthday, llIdentityCard, llTelephone,llAddress)
+                    listOf(llName, llSex, llNativePlace, llNation, llBirthday, llIdentityCard, llTelephone, llAddress)
                             .forEach { linearLayout -> linearLayout.background = it }
                 }
 
@@ -31,13 +36,29 @@ class RegistrationAct : BaseAct() {
             setStroke(1, Color.parseColor("#d3d4d2"))
             cornerRadii = floatArrayOf(radii, radii, 0f, 0f, 0f, 0f, radii, radii)
         }.let {
-                    listOf(tvName, tvSex, tvNativePlace, tvNation, tvBirthday,tvIdentityCard, tvTelephone,tvAddress)
+                    listOf(lName, lSex, lNativePlace, lNation, lBirthday, lIdentityCard, lTelephone, lAddress)
                             .forEach { textView -> textView.background = it }
                 }
     }
 
+    @SuppressLint("CheckResult")
     override fun bindIntent() {
-        //
+        tvSex.clicks().subscribe {
+            BottomSheetUtils.show(this, "选择婚姻状况", listOf("已婚", "未婚"), object : BottomSheetUtils.PickerListener {
+                override fun onConfirm(o: Any) {
+                    tvSex.text = o as String
+                }
+            })
+        }
+        tvNation.clicks().subscribe {
+            Nation.list().let {
+                BottomSheetUtils.show(this, "选择民族", it, object : BottomSheetUtils.PickerListener {
+                    override fun onConfirm(o: Any) {
+                        tvNation.text = (o as Label).text
+                    }
+                })
+            }
+        }
     }
 
 }
