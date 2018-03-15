@@ -33,8 +33,8 @@ class MainAct : BaseAct() {
         navigation.addHeaderView(HeaderView(context = this))
         navigation.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.navItem1 -> logout()
-                R.id.navItem2 -> Intent(this@MainAct, UpdatePwdAct::class.java).apply {
+                R.id.navItem2 -> logout()
+                R.id.navItem3 -> Intent(this@MainAct, UpdatePwdAct::class.java).apply {
                     startActivity(this)
                 }
             }

@@ -6,11 +6,11 @@
             android:icon="@mipmap/ic_home_black_36dp"
             android:title="首页"/>
         <item
-            android:id="@+id/navItem3"
+            android:id="@+id/navItem2"
             android:icon="@mipmap/ic_exit_to_app_black_36dp"
             android:title="用户登出"/>
         <item
-            android:id="@+id/navItem2"
+            android:id="@+id/navItem3"
             android:icon="@mipmap/ic_settings_black_36dp"
             android:title="更多设置"/>
     </group>
