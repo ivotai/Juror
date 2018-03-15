@@ -3,6 +3,7 @@ package com.unicorn.juror.main.appbar
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.blankj.utilcode.util.ActivityUtils
@@ -24,6 +25,10 @@ class AppBar(context: Context?, attrs: AttributeSet?) : FrameLayout(context, att
 
     fun setTitle(title: String) {
         tvTitle.text = title
+    }
+
+    fun showBackAction(){
+        itvAction.visibility = View.VISIBLE
     }
 
 }

@@ -14,6 +14,7 @@ import com.unicorn.juror.app.default
 import com.unicorn.juror.bottomSheet.DialogUtils
 import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.main.MainAct
+import com.unicorn.juror.registration.RegistrationAct
 import kotlinx.android.synthetic.main.act_login.*
 
 class LoginAct : BaseAct() {
@@ -41,6 +42,7 @@ class LoginAct : BaseAct() {
     @SuppressLint("CheckResult")
     override fun bindIntent() {
         tvLogin.clicks().subscribe { login() }
+        tvRegistration.clicks().subscribe { Intent(this, RegistrationAct::class.java).let { startActivity(it) } }
     }
 
     // todo rxlifecycle
