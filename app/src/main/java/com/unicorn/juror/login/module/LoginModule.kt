@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 class LoginModule {
 
     @Provides
-    fun provideLoginApi(retrofit: Retrofit) = retrofit.create(LoginApi::class.java)
+    fun provideLoginApi(retrofit: Retrofit): LoginApi = retrofit.create(LoginApi::class.java)
 
 
 }

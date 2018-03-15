@@ -8,10 +8,11 @@ import javax.inject.Inject
 
 class LoginRepo @Inject constructor(private val api: LoginApi) {
 
-    fun login() = api.login("","")
+    fun login(username: String, password: String) = api.login(username, password)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .map { ViewState(data = it) }
+            .map { ViewState(response = it) }
             .onErrorReturn { ViewState(error = it) }
             .startWith(ViewState())
+
 }

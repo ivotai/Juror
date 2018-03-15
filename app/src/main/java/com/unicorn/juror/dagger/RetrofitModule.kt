@@ -1,5 +1,6 @@
 package com.unicorn.juror.dagger
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -14,7 +15,9 @@ class RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder().build()
+    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
+            .addNetworkInterceptor( StethoInterceptor())
+            .build()
 
     @Singleton
     @Provides

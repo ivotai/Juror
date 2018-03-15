@@ -3,17 +3,19 @@ package com.unicorn.juror.login.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
+import com.blankj.utilcode.util.ToastUtils
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.unicorn.juror.R
+import com.unicorn.juror.app.AllTime
+import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.app.clicks
 import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.main.MainAct
 import kotlinx.android.synthetic.main.act_login.*
 
-class LoginAct : AppCompatActivity(), LoginView {
+class LoginAct : BaseAct(), LoginView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,27 +38,29 @@ class LoginAct : AppCompatActivity(), LoginView {
     // todo rxlifecycle
     @SuppressLint("CheckResult")
     private fun login() {
-        Intent(this, MainAct::class.java).apply {
-            startActivity(this)
-//        repo.login().subscribe {
-//            when {
-//                it.isLoading() -> {
-//                    showLoading()
-//                }
-//                it.isError() -> {
-//                    hideLoading()
-//
-//                }
-//                it.isSuccess() -> {
-//                    hideLoading()
-//
-////                    tieAdapter.setNewData(it.data)
-//                    Intent(this, MainAct::class.java).apply {
-//                        startActivity(this)
-//                    }
-//                }
-//            }
-        }
+        repo.login(etUsername.text.toString(), etPassword.text.toString())
+                .subscribe {
+                    when {
+                        it.isLoading() -> {
+                            showLoading()
+                        }
+                        it.isError() -> {
+                            hideLoading()
+                        }
+                        it.isSuccess() -> {
+                            hideLoading()
+                            val response = it.response!!
+                            if (!response.flag) {
+                                ToastUtils.showShort(response.msg)
+                            } else {
+                                AllTime.userInfo = response.data
+                                Intent(this, MainAct::class.java).apply {
+                                    startActivity(this)
+                                }
+                            }
+                        }
+                    }
+                }
     }
 
     private lateinit var dialog: MaterialDialog
