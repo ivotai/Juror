@@ -7,6 +7,7 @@ import com.mikepenz.iconics.typeface.IIcon
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.unicorn.juror.R
 import com.unicorn.juror.app.BaseAct
+import com.unicorn.juror.main.navigationView.HeaderView
 import kotlinx.android.synthetic.main.act_main.*
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView2
@@ -31,9 +32,10 @@ class MainAct : BaseAct() {
         navigationController.setupWithViewPager(viewPager)
         viewPager.offscreenPageLimit = 5 - 1
         viewPager.adapter = MainPagerAdapter(supportFragmentManager)
+
+        navigation.addHeaderView(HeaderView(context = this))
     }
 
-    //创建一个Item
     private fun newItem(default: IIcon, checked: IIcon, text: String): BaseTabItem {
         val normalItemView = NormalItemView2(this)
         normalItemView.initialize(

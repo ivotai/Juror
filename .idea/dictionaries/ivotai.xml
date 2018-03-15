@@ -2,6 +2,8 @@
   <dictionary name="ivotai">
     <words>
       <w>ipad</w>
+      <w>newpassword</w>
+      <w>oldpassword</w>
     </words>
   </dictionary>
 </component>
