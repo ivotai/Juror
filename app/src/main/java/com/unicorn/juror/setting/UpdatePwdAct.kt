@@ -8,6 +8,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.juror.R
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.clicks
+import com.unicorn.juror.app.default
 import com.unicorn.juror.dagger.ComponentHolder
 import kotlinx.android.synthetic.main.activity_update_pwd.*
 
@@ -34,12 +35,13 @@ class UpdatePwdAct : AppCompatActivity() {
         dialog.dismiss()
     }
 
-    private val repo = ComponentHolder.appComponent.getLoginRepo()
 
     // todo rxlifecycle
     @SuppressLint("CheckResult")
     private fun updatePassword() {
-        repo.updatePassword(AllTime.userInfo.userName, etOldPwd.text.toString(), etNewPwd.text.toString())
+        ComponentHolder.appComponent.getLoginApi()
+        .updatePassword(AllTime.userInfo.userName, etOldPwd.text.toString(), etNewPwd.text.toString())
+                .default()
                 .subscribe {
                     when {
                         it.isLoading() -> {

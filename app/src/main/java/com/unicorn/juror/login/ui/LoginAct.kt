@@ -11,11 +11,12 @@ import com.unicorn.juror.R
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.app.clicks
+import com.unicorn.juror.app.default
 import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.main.MainAct
 import kotlinx.android.synthetic.main.act_login.*
 
-class LoginAct : BaseAct(), LoginView {
+class LoginAct : BaseAct() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +34,13 @@ class LoginAct : BaseAct(), LoginView {
         tvLogin.clicks().subscribe { login() }
     }
 
-    private val repo = ComponentHolder.appComponent.getLoginRepo()
 
     // todo rxlifecycle
     @SuppressLint("CheckResult")
     private fun login() {
-        repo.login(etUsername.text.toString(), etPassword.text.toString())
+        ComponentHolder.appComponent.getLoginApi()
+                .login(etUsername.text.toString(), etPassword.text.toString())
+                .default()
                 .subscribe {
                     when {
                         it.isLoading() -> {
@@ -68,7 +70,7 @@ class LoginAct : BaseAct(), LoginView {
 
     private lateinit var dialog: MaterialDialog
 
-    override fun showLoading() {
+     fun showLoading() {
         dialog = MaterialDialog.Builder(this)
                 .title("登录中...")
                 .content("请稍后")
@@ -76,7 +78,7 @@ class LoginAct : BaseAct(), LoginView {
                 .show()
     }
 
-    override fun hideLoading() {
+     fun hideLoading() {
         dialog.dismiss()
     }
 
