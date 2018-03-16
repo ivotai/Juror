@@ -1,7 +1,9 @@
 package com.unicorn.juror.login.api
 
+import com.unicorn.juror.app.Page
 import com.unicorn.juror.app.Response
 import com.unicorn.juror.login.model.UserInfo
+import com.unicorn.juror.main.trend.Trend
 import com.unicorn.juror.registration.model.PersonalInfo
 import io.reactivex.Observable
 import retrofit2.http.POST
@@ -22,6 +24,10 @@ interface LoginApi {
             : Observable<Response<Any>>
 
     @POST("app/queryPersonMessage")
-    fun queryPersonalMessage(@Query("id") id:String,@Query("sfhm") loginName:String):Observable<Response<PersonalInfo>>
+    fun queryPersonalMessage(@Query("id") id: String, @Query("sfhm") loginName: String): Observable<Response<PersonalInfo>>
+
+    @POST("app/tzszxx")
+    fun getNews(@Query("fydm") fydm: String, @Query("page") page: Int, @Query("rows") rows: Int): Observable<Response<Page<Trend>>>
+
 
 }

@@ -58,6 +58,7 @@ dependencies {
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
     implementation "com.mikepenz:iconics-views:3.0.3@aar"
     compile 'com.philliphsu:bottomsheetpickers:2.4.1'
+    compile 'net.danlew:android.joda:2.9.9.2'
 }
 kapt {
     generateStubs = true

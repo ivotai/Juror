@@ -5,7 +5,7 @@ data class UserInfo(
         val cbsptbs: String,
         val cbsptmc: String,
         val fyJbm: String,
-        val fydm: Any,
+        val fydm: String,
         val fymc: Any,
         val gfdm: Any,
         val id: String,
