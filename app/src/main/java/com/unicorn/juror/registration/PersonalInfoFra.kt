@@ -27,7 +27,7 @@ class PersonalInfoFra : BaseFra() {
             setStroke(1, Color.parseColor("#d3d4d2"))
             cornerRadius = radii
         }.let {
-                    listOf(llName, llSex, llAge, llBirthday, llNativePlace, llNation, llIdentityCard, llMaritalStatus, llTelephone)
+                    listOf(llName, llSex, llNativePlace, llNation, llBirthday, llIdentityCard, llTelephone, llAddress)
                             .forEach { linearLayout -> linearLayout.background = it }
                 }
 
@@ -36,7 +36,7 @@ class PersonalInfoFra : BaseFra() {
             setStroke(1, Color.parseColor("#d3d4d2"))
             cornerRadii = floatArrayOf(radii, radii, 0f, 0f, 0f, 0f, radii, radii)
         }.let {
-                    listOf(lName, lSex, tvAge, lBirthday, lNativePlace, lNation, lIdentityCard, tvMaritalStatus, lTelephone)
+                    listOf(lName, lSex, lNativePlace, lNation, lBirthday, lIdentityCard, lTelephone, lAddress)
                             .forEach { textView -> textView.background = it }
                 }
 
