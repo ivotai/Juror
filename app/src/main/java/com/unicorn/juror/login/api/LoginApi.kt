@@ -15,5 +15,9 @@ interface LoginApi {
     fun updatePwd(@Query("id") id: String, @Query("username") username: String, @Query("oldpassword") oldPwd: String,
                   @Query("newpassword") newPwd: String): Observable<Response<UserInfo>>
 
+    @POST("app/addPersonMessage")
+    fun register(@Query("name") name: String, @Query("xb") sex: String, @Query("jg") nativelyPlace: String, @Query("mzdm") nation: String,
+                 @Query("birthday") birthday: String, @Query("sfhm") identifyCard: String, @Query("lxsj") telephone: String, @Query("zz") address: String)
+            : Observable<Response<Any>>
 
 }

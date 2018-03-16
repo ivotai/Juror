@@ -3,14 +3,21 @@ package com.unicorn.juror.registration
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import com.afollestad.materialdialogs.MaterialDialog
 import com.blankj.utilcode.util.ConvertUtils
+import com.blankj.utilcode.util.ToastUtils
+import com.philliphsu.bottomsheetpickers.date.DatePickerDialog
 import com.unicorn.juror.R
 import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.app.clicks
+import com.unicorn.juror.app.default
 import com.unicorn.juror.bottomSheet.BottomSheetUtils
+import com.unicorn.juror.bottomSheet.DialogUtils
+import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.registration.nation.Label
 import com.unicorn.juror.registration.nation.Nation
 import kotlinx.android.synthetic.main.act_registration.*
+import java.util.*
 
 class RegistrationAct : BaseAct() {
 
@@ -55,10 +62,57 @@ class RegistrationAct : BaseAct() {
                 BottomSheetUtils.show(this, "选择民族", it, object : BottomSheetUtils.PickerListener {
                     override fun onConfirm(o: Any) {
                         tvNation.text = (o as Label).text
+                        nation = o
                     }
                 })
             }
         }
+        tvBirthday.clicks().subscribe {
+            val now = Calendar.getInstance()
+            DatePickerDialog.newInstance(
+                    { dialog, year, monthOfYear, dayOfMonth ->
+                        birthday = "$year-$monthOfYear-$dayOfMonth"
+                        tvBirthday.text = birthday
+                    },
+                    now.get(Calendar.YEAR),
+                    now.get(Calendar.MONTH),
+                    now.get(Calendar.DAY_OF_MONTH)).show(supportFragmentManager, "dpd")
+
+        }
+        tvSubmit.clicks().subscribe {
+            var mask: MaterialDialog? = null
+            ComponentHolder.appComponent.getLoginApi()
+                    .register(name = etName.text.toString(),sex = tvSex.text.toString(),
+                            nativelyPlace = etNativePlace.text.toString(),nation = tvNation.text.toString(),
+                            birthday = tvBirthday.text.toString(),identifyCard = etIdentityCard.text.toString(),
+                            telephone = etTelephone.text.toString(),  address = etAddress.text.toString()
+                    )
+                    .default()
+                    .subscribe {
+                        when {
+                            it.isLoading() -> {
+                                mask = DialogUtils.showLoading(context = this, title = "提交中...")
+                            }
+                            it.isError() -> {
+                                mask?.dismiss()
+                            }
+                            it.isSuccess() -> {
+                                mask?.dismiss()
+                                val response = it.response!!
+                                if (!response.flag) {
+                                    ToastUtils.showShort(response.msg)
+                                } else {
+//                                    AllTime.userInfo = response.data
+//                                    Intent(this, MainAct::class.java).apply {
+//                                        startActivity(this)
+//                                    }
+                                }
+                            }
+                        }
+                    }
+        }
     }
 
+    var nation: Label? = null
+    var birthday: String? = null
 }

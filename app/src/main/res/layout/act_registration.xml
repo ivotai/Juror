@@ -155,8 +155,8 @@
                     android:textSize="14dp"
                     tools:ignore="HardcodedText,SpUsage" />
 
-                <EditText
-                    android:id="@+id/etBirthday"
+                <TextView
+                    android:id="@+id/tvBirthday"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
