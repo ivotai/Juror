@@ -24,7 +24,7 @@ class LoginAct : BaseAct() {
     override fun initViews() {
         appBar.setTitle("登录")
         etUsername.setText("61010019600501023x")
-        etPassword.setText("0000")
+        etPassword.setText("1234")
         setIcons()
     }
 
@@ -59,9 +59,9 @@ class LoginAct : BaseAct() {
                         }
                         it.isError() -> {
                             mask?.dismiss()
-                            Intent(this, MainAct::class.java).apply {
-                                startActivity(this)
-                            }
+//                            Intent(this, MainAct::class.java).apply {
+//                                startActivity(this)
+//                            }
                         }
                         it.isSuccess() -> {
                             mask?.dismiss()

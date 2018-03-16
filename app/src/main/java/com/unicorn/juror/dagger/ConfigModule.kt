@@ -9,8 +9,9 @@ class ConfigModule {
 
     @Provides
     @Named(value = "baseUrl")
-    fun baseUrl() = "http://154.0.21.123/juror/"
+//    fun baseUrl() = "http://154.0.21.123/juror/"
 
+    fun baseUrl() = "http://154.0.66.244/juror/"
 }
 
 

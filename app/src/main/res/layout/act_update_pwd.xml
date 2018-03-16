@@ -5,19 +5,10 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <com.unicorn.juror.main.appbar.AppBar
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:text="修改密码"
-        android:textColor="@color/md_white"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,SpUsage" />
+        android:layout_height="56dp"/>
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/etOldPwd"
@@ -32,7 +23,7 @@
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
         app:met_floatingLabel="highlight"
         tools:ignore="HardcodedText,SpUsage" />
 

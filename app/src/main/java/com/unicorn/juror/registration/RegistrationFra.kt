@@ -17,4 +17,5 @@ class RegistrationFra : BaseFra() {
         tabLayout.setupWithViewPager(viewPager)
     }
 
+
 }

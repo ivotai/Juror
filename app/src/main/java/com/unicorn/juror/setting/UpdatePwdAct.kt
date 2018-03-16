@@ -17,7 +17,8 @@ class UpdatePwdAct : BaseAct() {
     override val layoutID = R.layout.act_update_pwd
 
     override fun initViews() {
-        // nothing
+        appBar.setTitle("修改密码")
+        appBar.showBackAction()
     }
 
     @SuppressLint("CheckResult")

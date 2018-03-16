@@ -46,6 +46,9 @@ class RegistrationAct : BaseAct() {
                     listOf(lName, lSex, lNativePlace, lNation, lBirthday, lIdentityCard, lTelephone, lAddress)
                             .forEach { textView -> textView.background = it }
                 }
+
+        etTelephone.setText("13611840424")
+        etIdentityCard.setText("310109199101190576")
     }
 
     @SuppressLint("CheckResult")
@@ -67,6 +70,7 @@ class RegistrationAct : BaseAct() {
                 })
             }
         }
+        // todo
         tvBirthday.clicks().subscribe {
             val now = Calendar.getInstance()
             DatePickerDialog.newInstance(
@@ -83,7 +87,7 @@ class RegistrationAct : BaseAct() {
             var mask: MaterialDialog? = null
             ComponentHolder.appComponent.getLoginApi()
                     .register(name = etName.text.toString(),sex = tvSex.text.toString(),
-                            nativelyPlace = etNativePlace.text.toString(),nation = tvNation.text.toString(),
+                            nativelyPlace = etNativePlace.text.toString(),nation = nation!!.value,
                             birthday = tvBirthday.text.toString(),identifyCard = etIdentityCard.text.toString(),
                             telephone = etTelephone.text.toString(),  address = etAddress.text.toString()
                     )
