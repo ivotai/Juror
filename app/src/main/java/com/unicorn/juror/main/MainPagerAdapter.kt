@@ -3,6 +3,7 @@ package com.unicorn.juror.main
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import com.unicorn.juror.main.news.NewsFra
 import com.unicorn.juror.registration.PersonalInfoFra
 
 class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {

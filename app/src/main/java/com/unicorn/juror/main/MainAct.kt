@@ -32,7 +32,7 @@ class MainAct : BaseAct() {
     }
 
     private fun initNavigationView() {
-        if (AllTime.isVisitor){
+        if (AllTime.isVisitor) {
             drawLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         }
         navigation.addHeaderView(HeaderView(context = this))
