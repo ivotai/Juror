@@ -2,6 +2,7 @@ package com.unicorn.juror.login.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Paint
 import com.afollestad.materialdialogs.MaterialDialog
 import com.blankj.utilcode.util.ToastUtils
 import com.mikepenz.iconics.IconicsDrawable
@@ -26,6 +27,7 @@ class LoginAct : BaseAct() {
         etUsername.setText("61010019600501023x")
         etPassword.setText("1234")
         setIcons()
+        tvVisitor.paint.flags = Paint.UNDERLINE_TEXT_FLAG
     }
 
     private fun setIcons() {
@@ -41,8 +43,12 @@ class LoginAct : BaseAct() {
 
     @SuppressLint("CheckResult")
     override fun bindIntent() {
+        tvVisitor.clicks().subscribe {
+            AllTime.isVisitor = true
+            Intent(this,MainAct::class.java).let { startActivity(it) } }
         tvLogin.clicks().subscribe { login() }
-        tvRegistration.clicks().subscribe { Intent(this, RegistrationAct::class.java).let { startActivity(it) } }
+        tvRegistration.clicks().subscribe {
+            Intent(this, RegistrationAct::class.java).let { startActivity(it) } }
     }
 
     // todo rxlifecycle
@@ -70,6 +76,7 @@ class LoginAct : BaseAct() {
                                 ToastUtils.showShort(response.msg)
                             } else {
                                 AllTime.userInfo = response.data
+                                AllTime.isVisitor = false
                                 Intent(this, MainAct::class.java).apply {
                                     startActivity(this)
                                 }

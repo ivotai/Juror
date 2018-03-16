@@ -2,11 +2,13 @@ package com.unicorn.juror.main
 
 import android.content.Intent
 import android.graphics.Color
+import android.support.v4.widget.DrawerLayout
 import com.afollestad.materialdialogs.MaterialDialog
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.IIcon
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.unicorn.juror.R
+import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.login.ui.LoginAct
 import com.unicorn.juror.main.navigationView.HeaderView
@@ -30,9 +32,13 @@ class MainAct : BaseAct() {
     }
 
     private fun initNavigationView() {
+        if (AllTime.isVisitor){
+            drawLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        }
         navigation.addHeaderView(HeaderView(context = this))
         navigation.setNavigationItemSelectedListener {
             when (it.itemId) {
+                R.id.navItem1 -> drawLayout.closeDrawers()
                 R.id.navItem2 -> logout()
                 R.id.navItem3 -> Intent(this@MainAct, UpdatePwdAct::class.java).apply {
                     startActivity(this)
@@ -48,6 +54,7 @@ class MainAct : BaseAct() {
                 .positiveText("确认")
                 .negativeText("取消")
                 .onPositive { _, _ ->
+                    AllTime.isVisitor = true
                     finish()
                     Intent(this, LoginAct::class.java).let { startActivity(it) }
                 }
@@ -55,16 +62,24 @@ class MainAct : BaseAct() {
     }
 
     private fun initViewPager() {
-        val navigationController = tab.custom()
-                .addItem(newItem(Ionicons.Icon.ion_fireball, Ionicons.Icon.ion_fireball, "热点资讯"))
-                .addItem(newItem(Ionicons.Icon.ion_university, Ionicons.Icon.ion_university, "报名申请"))
-                .addItem(newItem(Ionicons.Icon.ion_ios_people, Ionicons.Icon.ion_ios_people, "互动专区"))
-                .addItem(newItem(Ionicons.Icon.ion_ios_bookmarks, Ionicons.Icon.ion_ios_bookmarks, "教育培训"))
-                .addItem(newItem(Ionicons.Icon.ion_android_person, Ionicons.Icon.ion_android_person, "个人业务"))
-                .build()
+        val navigationController =
+                if (AllTime.isVisitor)
+                    tab.custom()
+                            .addItem(newItem(Ionicons.Icon.ion_fireball, Ionicons.Icon.ion_fireball, "热点资讯"))
+                            .addItem(newItem(Ionicons.Icon.ion_ios_people, Ionicons.Icon.ion_ios_people, "互动专区"))
+                            .addItem(newItem(Ionicons.Icon.ion_ios_bookmarks, Ionicons.Icon.ion_ios_bookmarks, "教育培训"))
+                            .build()
+                else
+                    tab.custom()
+                            .addItem(newItem(Ionicons.Icon.ion_fireball, Ionicons.Icon.ion_fireball, "热点资讯"))
+                            .addItem(newItem(Ionicons.Icon.ion_university, Ionicons.Icon.ion_university, "报名申请"))
+                            .addItem(newItem(Ionicons.Icon.ion_ios_people, Ionicons.Icon.ion_ios_people, "互动专区"))
+                            .addItem(newItem(Ionicons.Icon.ion_ios_bookmarks, Ionicons.Icon.ion_ios_bookmarks, "教育培训"))
+                            .addItem(newItem(Ionicons.Icon.ion_android_person, Ionicons.Icon.ion_android_person, "个人业务"))
+                            .build()
         navigationController.setupWithViewPager(viewPager)
-        viewPager.offscreenPageLimit = 5 - 1
-        viewPager.adapter = MainPagerAdapter(supportFragmentManager)
+        viewPager.offscreenPageLimit = if (AllTime.isVisitor) 2 else 4
+        viewPager.adapter = if (AllTime.isVisitor) MainPagerAdapterForVisitor(supportFragmentManager) else MainPagerAdapter(supportFragmentManager)
 
     }
 

@@ -43,7 +43,6 @@ class PersonalInfoFra : BaseFra() {
                             .forEach { textView -> textView.background = it }
                 }
 
-
         appBar.setTitle("报名申请")
 
         queryPersonInfo()
@@ -77,7 +76,7 @@ class PersonalInfoFra : BaseFra() {
         tvSex.text = personalInfo.xb
         tvNativePlace.text = personalInfo.jg
         tvNation.text = personalInfo.mz
-        tvBirthday.text = personalInfo.birthday
+        tvBirthday.text = personalInfo.birthday.toString()
         tvIdentityCard.text = personalInfo.sfhm
         tvTelephone.text = personalInfo.lxsj
         tvAddress.text = personalInfo.address
