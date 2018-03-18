@@ -27,7 +27,7 @@ interface LoginApi {
     fun queryPersonalMessage(@Query("id") id: String, @Query("sfhm") loginName: String): Observable<Response<PersonalInfo>>
 
     @POST("app/tzszxx")
-    fun getNews(@Query("fydm") fydm: String, @Query("page") page: Int, @Query("rows") rows: Int): Observable<Response<Page<Trend>>>
+    fun getNews(@Query("page") page: Int, @Query("rows") rows: Int): Observable<Response<Page<Trend>>>
 
 
 }

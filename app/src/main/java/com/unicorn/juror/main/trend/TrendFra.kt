@@ -15,7 +15,7 @@ class TrendFra : BaseFra() {
 
     override val layoutID = R.layout.fra_trend
 
-    val trendAdapter = TrendAdapter()
+    private val trendAdapter = TrendAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,39 +26,77 @@ class TrendFra : BaseFra() {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             trendAdapter.bindToRecyclerView(this)
+            trendAdapter.setOnLoadMoreListener({ loadMore()}, recyclerView)
         }
 
-        getNews()
+        loadFirst()
     }
 
-    @SuppressLint("CheckResult")
-    private fun getNews() {
-        ComponentHolder.appComponent.getLoginApi()
+    val rows = 5
 
-                .getNews(fydm = "", page = 0, rows = 10)
+
+    @SuppressLint("CheckResult")
+    private fun loadFirst() {
+        ComponentHolder.appComponent.getLoginApi()
+                .getNews(page = pageNo, rows = rows)
                 .default()
                 .subscribe {
                     when {
                         it.isLoading() -> {
-//                            mask = DialogUtils.showLoading(context = this, title = "登录中...")
                         }
                         it.isError() -> {
-                            ""
 //                            mask?.dismiss()
 //                            Intent(this, MainAct::class.java).apply {
 //                                startActivity(this)
 //                            }
                         }
                         it.isSuccess() -> {
-//                            mask?.dismiss()
                             val response = it.response!!
                             ToastUtils.showShort(response.msg)
                             trendAdapter.setNewData(response.data.rows)
+
+                            if (trendAdapter.data.size == response.data.total){
+                                trendAdapter.loadMoreEnd()
+                            }
+                        }
+                    }
+                }
+    }
+
+    private val pageNo
+        get() = trendAdapter.data.size / rows
+
+    @SuppressLint("CheckResult")
+    private fun loadMore() {
+        ComponentHolder.appComponent.getLoginApi()
+                .getNews(page = pageNo, rows = rows)
+                .default()
+                .subscribe {
+                    when {
+                        it.isLoading() -> {
+                        }
+                        it.isError() -> {
+//                            mask?.dismiss()
+//                            Intent(this, MainAct::class.java).apply {
+//                                startActivity(this)
+//                            }
+                        }
+                        it.isSuccess() -> {
+                            val response = it.response!!
+                            ToastUtils.showShort(response.msg)
+
+                            trendAdapter.loadMoreComplete()
+                            trendAdapter.addData(response.data.rows)
+                            trendAdapter.notifyDataSetChanged()
+                            if (trendAdapter.data.size == response.data.total){
+                                trendAdapter.loadMoreEnd()
+                            }
                         }
                     }
                 }
 
 
     }
+
 
 }

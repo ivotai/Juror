@@ -45,10 +45,12 @@ class LoginAct : BaseAct() {
     override fun bindIntent() {
         tvVisitor.clicks().subscribe {
             AllTime.isVisitor = true
-            Intent(this,MainAct::class.java).let { startActivity(it) } }
+            Intent(this, MainAct::class.java).let { startActivity(it) }
+        }
         tvLogin.clicks().subscribe { login() }
-        tvRegistration.clicks().subscribe {
-            Intent(this, RegistrationAct::class.java).let { startActivity(it) } }
+        val subscribe = tvRegistration.clicks().subscribe {
+            Intent(this, RegistrationAct::class.java).let { startActivity(it) }
+        }
     }
 
     // todo rxlifecycle
