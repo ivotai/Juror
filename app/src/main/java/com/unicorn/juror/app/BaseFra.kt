@@ -10,8 +10,18 @@ abstract class BaseFra : SupportFragment() {
 
     abstract val layoutID: Int
 
+    abstract fun initViews()
+
+    abstract fun bindIntent()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(layoutID, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
+        bindIntent()
     }
 
 }

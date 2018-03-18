@@ -33,7 +33,11 @@ class TrendFra : BaseFra() {
     }
 
     val rows = 5
+    override fun initViews() {
+    }
 
+    override fun bindIntent() {
+    }
 
     @SuppressLint("CheckResult")
     private fun loadFirst() {

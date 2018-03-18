@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -18,6 +19,7 @@ class RetrofitModule {
     @Provides
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
             .addNetworkInterceptor( StethoInterceptor())
+            .connectTimeout(2,TimeUnit.SECONDS)
             .build()
 
     @Singleton

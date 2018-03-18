@@ -18,6 +18,11 @@ import kotlinx.android.synthetic.main.fra_personal_info.*
 class PersonalInfoFra : BaseFra() {
 
     override val layoutID = R.layout.fra_personal_info
+    override fun initViews() {
+    }
+
+    override fun bindIntent() {
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 

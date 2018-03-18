@@ -45,7 +45,6 @@ dependencies {
     implementation(name: 'pager-bottom-tab-strip', ext: 'aar')
 //    implementation(name: 'fBReader-release', ext: 'aar')
 //    implementation(name: 'mupdf', ext: 'aar')
-
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     implementation 'com.mikepenz:iconics-core:3.0.3@aar'
     implementation 'com.mikepenz:ionicons-typeface:2.0.1.4@aar'

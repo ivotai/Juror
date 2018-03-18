@@ -67,9 +67,9 @@ class LoginAct : BaseAct() {
                         }
                         it.isError() -> {
                             mask?.dismiss()
-//                            Intent(this, MainAct::class.java).apply {
-//                                startActivity(this)
-//                            }
+                            Intent(this, MainAct::class.java).apply {
+                                startActivity(this)
+                            }
                         }
                         it.isSuccess() -> {
                             mask?.dismiss()

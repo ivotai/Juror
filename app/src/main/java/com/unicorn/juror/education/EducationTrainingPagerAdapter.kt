@@ -1,16 +1,18 @@
-package com.unicorn.juror.registration
+package com.unicorn.juror.education
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
-import com.unicorn.juror.main.trend.TrendFra
+import com.unicorn.juror.main.SimpleFra
 
-class RegistrationPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+class EducationTrainingPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
-    private val titles = listOf("个人信息", "进度查询")
+    companion object {
+        val titles = listOf("教材库", "我的书架")
+    }
 
     override fun getItem(position: Int): Fragment {
-        return if(position==0) PersonalInfoFra() else TrendFra()
+        return SimpleFra()
     }
 
     override fun getCount() = titles.size

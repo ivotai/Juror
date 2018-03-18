@@ -8,6 +8,7 @@ import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.IIcon
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.unicorn.juror.R
+import com.unicorn.juror.R.id.*
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.login.ui.LoginAct
@@ -79,7 +80,7 @@ class MainAct : BaseAct() {
                             .build()
         navigationController.setupWithViewPager(viewPager)
         viewPager.offscreenPageLimit = if (AllTime.isVisitor) 2 else 4
-        viewPager.adapter = if (AllTime.isVisitor) MainPagerAdapterForVisitor(supportFragmentManager) else MainPagerAdapter(supportFragmentManager)
+        viewPager.adapter = if (AllTime.isVisitor) MainPagerAdapterV(supportFragmentManager) else MainPagerAdapter(supportFragmentManager)
 
     }
 
