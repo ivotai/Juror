@@ -3,6 +3,7 @@ package com.unicorn.juror.dagger
 import com.unicorn.juror.login.api.LoginApi
 import com.unicorn.juror.login.module.LoginModule
 import dagger.Component
+import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
 @Singleton
@@ -11,4 +12,5 @@ interface AppComponent {
 
     fun getLoginApi(): LoginApi
 
+    fun getClient():OkHttpClient
 }

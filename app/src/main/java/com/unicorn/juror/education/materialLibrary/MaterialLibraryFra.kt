@@ -19,12 +19,12 @@ class MaterialLibraryFra : BaseFra() {
             layoutManager = GridLayoutManager(context, 2)
             bookAdapter.bindToRecyclerView(this)
         }
-        val url = ""
+        val url = "https://www.gitbook.com/download/pdf/book/hltj/kotlin-reference-chinese"
         bookAdapter.setNewData(listOf(
-                Book("", "测试书籍"),
-                Book("", "测试书籍"),
-                Book("", "测试书籍"),
-                Book("", "测试书籍")
+                Book(url, "测试书籍"),
+                Book(url, "测试书籍"),
+                Book(url, "测试书籍"),
+                Book(url, "测试书籍")
         ))
     }
 
