@@ -43,8 +43,8 @@ dependencies {
     implementation 'com.wada811:android-material-design-colors:3.0.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.31'
     implementation(name: 'pager-bottom-tab-strip', ext: 'aar')
-//    implementation(name: 'fBReader-release', ext: 'aar')
-//    implementation(name: 'mupdf', ext: 'aar')
+    //    implementation(name: 'fBReader-release', ext: 'aar')
+    //    implementation(name: 'mupdf', ext: 'aar')
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     implementation 'com.mikepenz:iconics-core:3.0.3@aar'
     implementation 'com.mikepenz:ionicons-typeface:2.0.1.4@aar'
@@ -58,9 +58,10 @@ dependencies {
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    implementation "com.mikepenz:iconics-views:3.0.3@aar"
+    implementation 'com.mikepenz:iconics-views:3.0.3@aar'
     implementation 'com.philliphsu:bottomsheetpickers:2.4.1'
     implementation 'net.danlew:android.joda:2.9.9.2'
+    implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
 }
 kapt {
     generateStubs = true
