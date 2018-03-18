@@ -3,6 +3,7 @@ package com.unicorn.juror.education
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import com.unicorn.juror.education.materialLibrary.MaterialLibraryFra
 import com.unicorn.juror.main.SimpleFra
 
 class EducationTrainingPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
@@ -12,7 +13,7 @@ class EducationTrainingPagerAdapter(fm: FragmentManager) : FragmentStatePagerAda
     }
 
     override fun getItem(position: Int): Fragment {
-        return SimpleFra()
+        return if (position == 0) MaterialLibraryFra() else SimpleFra ()
     }
 
     override fun getCount() = titles.size
