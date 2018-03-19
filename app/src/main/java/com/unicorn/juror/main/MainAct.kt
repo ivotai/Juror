@@ -1,16 +1,20 @@
 package com.unicorn.juror.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.support.v4.widget.DrawerLayout
 import com.afollestad.materialdialogs.MaterialDialog
+import com.blankj.utilcode.util.ToastUtils
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.IIcon
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.unicorn.juror.R
-import com.unicorn.juror.R.id.*
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseAct
+import com.unicorn.juror.app.Court
+import com.unicorn.juror.app.default
+import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.login.ui.LoginAct
 import com.unicorn.juror.main.navigationView.HeaderView
 import com.unicorn.juror.setting.UpdatePwdAct
@@ -30,7 +34,31 @@ class MainAct : BaseAct() {
 
     override fun bindIntent() {
         // nothing
+        getCourt()
     }
+
+    @SuppressLint("CheckResult")
+    private fun getCourt() {
+        ComponentHolder.appComponent.getLoginApi().getCourt().default()
+                .subscribe {
+                    when {
+                        it.isLoading() -> {
+                        }
+                        it.isError() -> {
+                            it
+                        }
+                        it.isSuccess() -> {
+                            val response = it.response!!
+                            ToastUtils.showShort(response.msg)
+                        }
+                    }
+                }
+    }
+
+    private fun cope(courts:List<Court>){
+       val r00:Court?=null
+    }
+
 
     private fun initNavigationView() {
         if (AllTime.isVisitor) {

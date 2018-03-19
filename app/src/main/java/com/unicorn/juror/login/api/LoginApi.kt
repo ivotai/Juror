@@ -1,5 +1,6 @@
 package com.unicorn.juror.login.api
 
+import com.unicorn.juror.app.Court
 import com.unicorn.juror.app.Page
 import com.unicorn.juror.app.Response
 import com.unicorn.juror.courtTrend.CourtTrend
@@ -42,6 +43,6 @@ interface LoginApi {
     fun downloadMaterial(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String): Observable<ResponseBody>
 
     @POST("app/getTree")
-    fun getCourt(): Observable<Response<Any>>
+    fun getCourt(): Observable<Response<List<Court>>>
 
 }
