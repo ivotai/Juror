@@ -9,5 +9,5 @@ data class CourtTrend(
 		val title: String,
 		val filename: String,
 		val fileurl: String,
-		val yfilename: Any
+		val yfilename: String
 )

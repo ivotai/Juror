@@ -6,6 +6,7 @@ import com.unicorn.juror.courtTrend.CourtTrend
 import com.unicorn.juror.login.model.UserInfo
 import com.unicorn.juror.registration.model.PersonalInfo
 import io.reactivex.Observable
+import okhttp3.ResponseBody
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -29,5 +30,7 @@ interface LoginApi {
     @POST("app/tzszxx")
     fun getCourtTrend(@Query("page") page: Int, @Query("rows") rows: Int): Observable<Response<Page<CourtTrend>>>
 
+    @POST("app/tzfjdownload")
+    fun downFile(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String): Observable<ResponseBody>
 
 }

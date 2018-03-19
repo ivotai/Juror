@@ -15,7 +15,7 @@ abstract class PageFra<T> : BaseFra() {
 
     abstract val recyclerView1: RecyclerView
 
-    abstract val swipeRefreshLayout1:SwipeRefreshLayout
+    abstract val swipeRefreshLayout1: SwipeRefreshLayout
 
     abstract fun loadPage(page: Int, rows: Int): Observable<Response<Page<T>>>
 
@@ -32,7 +32,6 @@ abstract class PageFra<T> : BaseFra() {
             adapter1.setOnLoadMoreListener({ loadNextPage() }, recyclerView1)
         }
     }
-
 
     override fun bindIntent() {
         loadFirstPage()
