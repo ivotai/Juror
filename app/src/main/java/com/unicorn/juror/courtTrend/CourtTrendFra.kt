@@ -1,106 +1,29 @@
 package com.unicorn.juror.courtTrend
 
-import android.annotation.SuppressLint
-import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.view.View
-import com.blankj.utilcode.util.ToastUtils
+import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.RecyclerView
 import com.unicorn.juror.R
-import com.unicorn.juror.app.BaseFra
-import com.unicorn.juror.app.default
+import com.unicorn.juror.app.Page
+import com.unicorn.juror.app.PageFra
+import com.unicorn.juror.app.Response
 import com.unicorn.juror.dagger.ComponentHolder
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.fra_trend.*
 
-class CourtTrendFra : BaseFra() {
+class CourtTrendFra : PageFra<CourtTrend>() {
 
     override val layoutID = R.layout.fra_trend
 
-    private val trendAdapter = CourtTrendAdapter()
+    override val adapter1 = CourtTrendAdapter()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override val recyclerView1: RecyclerView
+        get() = recyclerView
 
+    override val swipeRefreshLayout1: SwipeRefreshLayout
+        get() = swipeRefreshLayout
 
-        appBar.setTitle("资讯热点")
-
-        recyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
-            trendAdapter.bindToRecyclerView(this)
-            trendAdapter.setOnLoadMoreListener({ loadMore()}, recyclerView)
-        }
-
-        loadFirst()
+    override fun loadPage(page: Int, rows: Int): Observable<Response<Page<CourtTrend>>> {
+        return ComponentHolder.appComponent.getLoginApi().getCourtTrend(page, rows)
     }
-
-    val rows = 5
-    override fun initViews() {
-    }
-
-    override fun bindIntent() {
-    }
-
-    @SuppressLint("CheckResult")
-    private fun loadFirst() {
-        ComponentHolder.appComponent.getLoginApi()
-                .getCourtTrend(page = pageNo, rows = rows)
-                .default()
-                .subscribe {
-                    when {
-                        it.isLoading() -> {
-                        }
-                        it.isError() -> {
-//                            mask?.dismiss()
-//                            Intent(this, MainAct::class.java).apply {
-//                                startActivity(this)
-//                            }
-                        }
-                        it.isSuccess() -> {
-                            val response = it.response!!
-                            ToastUtils.showShort(response.msg)
-                            trendAdapter.setNewData(response.data.rows)
-
-                            if (trendAdapter.data.size == response.data.total){
-                                trendAdapter.loadMoreEnd()
-                            }
-                        }
-                    }
-                }
-    }
-
-    private val pageNo
-        get() = trendAdapter.data.size / rows
-
-    @SuppressLint("CheckResult")
-    private fun loadMore() {
-        ComponentHolder.appComponent.getLoginApi()
-                .getCourtTrend(page = pageNo, rows = rows)
-                .default()
-                .subscribe {
-                    when {
-                        it.isLoading() -> {
-                        }
-                        it.isError() -> {
-//                            mask?.dismiss()
-//                            Intent(this, MainAct::class.java).apply {
-//                                startActivity(this)
-//                            }
-                        }
-                        it.isSuccess() -> {
-                            val response = it.response!!
-                            ToastUtils.showShort(response.msg)
-
-                            trendAdapter.loadMoreComplete()
-                            trendAdapter.addData(response.data.rows)
-                            trendAdapter.notifyDataSetChanged()
-                            if (trendAdapter.data.size == response.data.total){
-                                trendAdapter.loadMoreEnd()
-                            }
-                        }
-                    }
-                }
-
-
-    }
-
 
 }

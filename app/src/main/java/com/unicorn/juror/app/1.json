@@ -1,0 +1,850 @@
+[
+
+  {
+    "id": "R00",
+    "pId": "000",
+    "isParent": "false",
+    "dm": "R00",
+    "name": "陕西省高级人民法院"
+  },
+  {
+    "id": "R10",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "R10",
+    "name": "陕西省西安市中级人民法院"
+  },
+  {
+    "id": "R11",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R11",
+    "name": "西安市新城区人民法院"
+  },
+  {
+    "id": "R12",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R12",
+    "name": "西安市碑林区人民法院"
+  },
+  {
+    "id": "R13",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R13",
+    "name": "西安市莲湖区人民法院"
+  },
+  {
+    "id": "R14",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R14",
+    "name": "西安市灞桥区人民法院"
+  },
+  {
+    "id": "R15",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R15",
+    "name": "西安市未央区人民法院"
+  },
+  {
+    "id": "R16",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R16",
+    "name": "西安市雁塔区人民法院"
+  },
+  {
+    "id": "R17",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R17",
+    "name": "西安市阎良区人民法院"
+  },
+  {
+    "id": "R18",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R18",
+    "name": "西安市长安区人民法院"
+  },
+  {
+    "id": "R19",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R19",
+    "name": "蓝田县人民法院"
+  },
+  {
+    "id": "R1A",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R1A",
+    "name": "西安市临潼区人民法院"
+  },
+  {
+    "id": "R1B",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R1B",
+    "name": "周至县人民法院"
+  },
+  {
+    "id": "R1C",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R1C",
+    "name": "户县人民法院"
+  },
+  {
+    "id": "R1D",
+    "pId": "R10",
+    "isParent": "false",
+    "dm": "R1D",
+    "name": "高陵区人民法院"
+  },
+  {
+    "id": "R20",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "R20",
+    "name": "陕西省铜川市中级人民法院"
+  },
+  {
+    "id": "R21",
+    "pId": "R20",
+    "isParent": "false",
+    "dm": "R21",
+    "name": "铜川市王益区人民法院"
+  },
+  {
+    "id": "R22",
+    "pId": "R20",
+    "isParent": "false",
+    "dm": "R22",
+    "name": "铜川市印台区人民法院"
+  },
+  {
+    "id": "R23",
+    "pId": "R20",
+    "isParent": "false",
+    "dm": "R23",
+    "name": "铜川市耀州区人民法院"
+  },
+  {
+    "id": "R24",
+    "pId": "R20",
+    "isParent": "false",
+    "dm": "R24",
+    "name": "宜君县人民法院"
+  },
+  {
+    "id": "R30",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "R30",
+    "name": "陕西省宝鸡市中级人民法院"
+  },
+  {
+    "id": "R31",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R31",
+    "name": "宝鸡市渭滨区人民法院"
+  },
+  {
+    "id": "R32",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R32",
+    "name": "宝鸡市金台区人民法院"
+  },
+  {
+    "id": "R33",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R33",
+    "name": "宝鸡市陈仓区人民法院"
+  },
+  {
+    "id": "R34",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R34",
+    "name": "凤翔县人民法院"
+  },
+  {
+    "id": "R35",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R35",
+    "name": "歧山县人民法院"
+  },
+  {
+    "id": "R36",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R36",
+    "name": "扶风县人民法院"
+  },
+  {
+    "id": "R37",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R37",
+    "name": "眉县人民法院"
+  },
+  {
+    "id": "R38",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R38",
+    "name": "陇县人民法院"
+  },
+  {
+    "id": "R39",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R39",
+    "name": "千阳县人民法院"
+  },
+  {
+    "id": "R3A",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R3A",
+    "name": "麟游县人民法院"
+  },
+  {
+    "id": "R3B",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R3B",
+    "name": "凤县人民法院"
+  },
+  {
+    "id": "R3C",
+    "pId": "R30",
+    "isParent": "false",
+    "dm": "R3C",
+    "name": "太白县人民法院"
+  },
+  {
+    "id": "R40",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "R40",
+    "name": "陕西省咸阳市中级人民法院"
+  },
+  {
+    "id": "R41",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R41",
+    "name": "咸阳市秦都区人民法院"
+  },
+  {
+    "id": "R42",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R42",
+    "name": "咸阳市杨陵区人民法院"
+  },
+  {
+    "id": "R43",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R43",
+    "name": "咸阳市渭城区人民法院"
+  },
+  {
+    "id": "R44",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R44",
+    "name": "兴平市人民法院"
+  },
+  {
+    "id": "R45",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R45",
+    "name": "三原县人民法院"
+  },
+  {
+    "id": "R46",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R46",
+    "name": "泾阳县人民法院"
+  },
+  {
+    "id": "R47",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R47",
+    "name": "乾县人民法院"
+  },
+  {
+    "id": "R48",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R48",
+    "name": "礼泉县人民法院"
+  },
+  {
+    "id": "R49",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R49",
+    "name": "永寿县人民法院"
+  },
+  {
+    "id": "R4A",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R4A",
+    "name": "彬县人民法院"
+  },
+  {
+    "id": "R4B",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R4B",
+    "name": "长武县人民法院"
+  },
+  {
+    "id": "R4C",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R4C",
+    "name": "旬邑县人民法院"
+  },
+  {
+    "id": "R4D",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R4D",
+    "name": "淳化县人民法院"
+  },
+  {
+    "id": "R4E",
+    "pId": "R40",
+    "isParent": "false",
+    "dm": "R4E",
+    "name": "武功县人民法院"
+  },
+  {
+    "id": "R50",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "R50",
+    "name": "陕西省渭南市中级人民法院"
+  },
+  {
+    "id": "R51",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R51",
+    "name": "渭南市临渭区人民法院"
+  },
+  {
+    "id": "R52",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R52",
+    "name": "韩城市人民法院"
+  },
+  {
+    "id": "R53",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R53",
+    "name": "华阴市人民法院"
+  },
+  {
+    "id": "R54",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R54",
+    "name": "华县人民法院"
+  },
+  {
+    "id": "R55",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R55",
+    "name": "潼关县人民法院"
+  },
+  {
+    "id": "R56",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R56",
+    "name": "大荔县人民法院"
+  },
+  {
+    "id": "R57",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R57",
+    "name": "蒲城县人民法院"
+  },
+  {
+    "id": "R58",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R58",
+    "name": "澄城县人民法院"
+  },
+  {
+    "id": "R59",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R59",
+    "name": "白水县人民法院"
+  },
+  {
+    "id": "R5A",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R5A",
+    "name": "合阳县人民法院"
+  },
+  {
+    "id": "R5B",
+    "pId": "R50",
+    "isParent": "false",
+    "dm": "R5B",
+    "name": "富平县人民法院"
+  },
+  {
+    "id": "R60",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "R60",
+    "name": "陕西省汉中市中级人民法院"
+  },
+  {
+    "id": "R61",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R61",
+    "name": "汉中市汉台区人民法院"
+  },
+  {
+    "id": "R62",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R62",
+    "name": "南郑县人民法院"
+  },
+  {
+    "id": "R63",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R63",
+    "name": "城固县人民法院"
+  },
+  {
+    "id": "R64",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R64",
+    "name": "洋县人民法院"
+  },
+  {
+    "id": "R65",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R65",
+    "name": "西乡县人民法院"
+  },
+  {
+    "id": "R66",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R66",
+    "name": "勉县人民法院"
+  },
+  {
+    "id": "R67",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R67",
+    "name": "宁强县人民法院"
+  },
+  {
+    "id": "R68",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R68",
+    "name": "略阳县人民法院"
+  },
+  {
+    "id": "R69",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R69",
+    "name": "镇巴县人民法院"
+  },
+  {
+    "id": "R6A",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R6A",
+    "name": "留坝县人民法院"
+  },
+  {
+    "id": "R6B",
+    "pId": "R60",
+    "isParent": "false",
+    "dm": "R6B",
+    "name": "佛坪县人民法院"
+  },
+  {
+    "id": "R70",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "R70",
+    "name": "陕西省安康市中级人民法院"
+  },
+  {
+    "id": "R71",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R71",
+    "name": "安康市汉滨区人民法院"
+  },
+  {
+    "id": "R72",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R72",
+    "name": "汉阴县人民法院"
+  },
+  {
+    "id": "R73",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R73",
+    "name": "石泉县人民法院"
+  },
+  {
+    "id": "R74",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R74",
+    "name": "宁陕县人民法院"
+  },
+  {
+    "id": "R75",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R75",
+    "name": "紫阳县人民法院"
+  },
+  {
+    "id": "R76",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R76",
+    "name": "岚皋县人民法院"
+  },
+  {
+    "id": "R77",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R77",
+    "name": "平利县人民法院"
+  },
+  {
+    "id": "R78",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R78",
+    "name": "镇坪县人民法院"
+  },
+  {
+    "id": "R79",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R79",
+    "name": "旬阳县人民法院"
+  },
+  {
+    "id": "R7A",
+    "pId": "R70",
+    "isParent": "false",
+    "dm": "R7A",
+    "name": "白河县人民法院"
+  },
+  {
+    "id": "R80",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "R80",
+    "name": "陕西省商洛市中级人民法院"
+  },
+  {
+    "id": "R81",
+    "pId": "R80",
+    "isParent": "false",
+    "dm": "R81",
+    "name": "商洛市商州区人民法院"
+  },
+  {
+    "id": "R82",
+    "pId": "R80",
+    "isParent": "false",
+    "dm": "R82",
+    "name": "洛南县人民法院"
+  },
+  {
+    "id": "R83",
+    "pId": "R80",
+    "isParent": "false",
+    "dm": "R83",
+    "name": "丹凤县人民法院"
+  },
+  {
+    "id": "R84",
+    "pId": "R80",
+    "isParent": "false",
+    "dm": "R84",
+    "name": "商南县人民法院"
+  },
+  {
+    "id": "R85",
+    "pId": "R80",
+    "isParent": "false",
+    "dm": "R85",
+    "name": "山阳县人民法院"
+  },
+  {
+    "id": "R86",
+    "pId": "R80",
+    "isParent": "false",
+    "dm": "R86",
+    "name": "镇安县人民法院"
+  },
+  {
+    "id": "R87",
+    "pId": "R80",
+    "isParent": "false",
+    "dm": "R87",
+    "name": "柞水县人民法院"
+  },
+  {
+    "id": "R90",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "R90",
+    "name": "陕西省延安市中级人民法院"
+  },
+  {
+    "id": "R91",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R91",
+    "name": "延安市宝塔区人民法院"
+  },
+  {
+    "id": "R92",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R92",
+    "name": "延长县人民法院"
+  },
+  {
+    "id": "R93",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R93",
+    "name": "延川县人民法院"
+  },
+  {
+    "id": "R94",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R94",
+    "name": "子长县人民法院"
+  },
+  {
+    "id": "R95",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R95",
+    "name": "安塞县人民法院"
+  },
+  {
+    "id": "R96",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R96",
+    "name": "志丹县人民法院"
+  },
+  {
+    "id": "R97",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R97",
+    "name": "吴起县人民法院"
+  },
+  {
+    "id": "R98",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R98",
+    "name": "甘泉县人民法院"
+  },
+  {
+    "id": "R99",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R99",
+    "name": "富县人民法院"
+  },
+  {
+    "id": "R9A",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R9A",
+    "name": "洛川县人民法院"
+  },
+  {
+    "id": "R9B",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R9B",
+    "name": "宜川县人民法院"
+  },
+  {
+    "id": "R9C",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R9C",
+    "name": "黄龙县人民法院"
+  },
+  {
+    "id": "R9D",
+    "pId": "R90",
+    "isParent": "false",
+    "dm": "R9D",
+    "name": "黄陵县人民法院"
+  },
+  {
+    "id": "RA0",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "RA0",
+    "name": "陕西省榆林市中级人民法院"
+  },
+  {
+    "id": "RA1",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RA1",
+    "name": "榆林市榆阳区人民法院"
+  },
+  {
+    "id": "RA2",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RA2",
+    "name": "神木县人民法院"
+  },
+  {
+    "id": "RA3",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RA3",
+    "name": "府谷县人民法院"
+  },
+  {
+    "id": "RA4",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RA4",
+    "name": "横山县人民法院"
+  },
+  {
+    "id": "RA5",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RA5",
+    "name": "靖边县人民法院"
+  },
+  {
+    "id": "RA6",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RA6",
+    "name": "定边县人民法院"
+  },
+  {
+    "id": "RA7",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RA7",
+    "name": "绥德县人民法院"
+  },
+  {
+    "id": "RA8",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RA8",
+    "name": "米脂县人民法院"
+  },
+  {
+    "id": "RA9",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RA9",
+    "name": "佳县人民法院"
+  },
+  {
+    "id": "RAA",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RAA",
+    "name": "吴堡县人民法院"
+  },
+  {
+    "id": "RAB",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RAB",
+    "name": "清涧县人民法院"
+  },
+  {
+    "id": "RAC",
+    "pId": "RA0",
+    "isParent": "false",
+    "dm": "RAC",
+    "name": "子洲县人民法院"
+  },
+  {
+    "id": "RB0",
+    "pId": "R00",
+    "isParent": "true",
+    "dm": "RB0",
+    "name": "西安铁路运输中级法院"
+  },
+  {
+    "id": "RB1",
+    "pId": "RB0",
+    "isParent": "false",
+    "dm": "RB1",
+    "name": "安康铁路运输法院"
+  },
+  {
+    "id": "RB2",
+    "pId": "RB0",
+    "isParent": "false",
+    "dm": "RB2",
+    "name": "西安铁路运输法院"
+  }
+]

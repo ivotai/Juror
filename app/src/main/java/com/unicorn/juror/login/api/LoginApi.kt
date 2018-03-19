@@ -41,4 +41,7 @@ interface LoginApi {
     @POST("app/downloadTeachingMaterials")
     fun downloadMaterial(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String): Observable<ResponseBody>
 
+    @POST("app/getTree")
+    fun getCourt(): Observable<Response<Any>>
+
 }
