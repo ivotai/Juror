@@ -29,6 +29,7 @@ abstract class PageFra<T> : BaseFra() {
         recyclerView1.apply {
             layoutManager = LinearLayoutManager(context)
             adapter1.bindToRecyclerView(this)
+            adapter1.setEnableLoadMore(true)
             adapter1.setOnLoadMoreListener({ loadNextPage() }, recyclerView1)
         }
     }
@@ -45,8 +46,10 @@ abstract class PageFra<T> : BaseFra() {
                 .subscribe {
                     when {
                         it.isLoading() -> {
+                            swipeRefreshLayout1.isRefreshing = true
                         }
                         it.isError() -> {
+                            swipeRefreshLayout1.isRefreshing = false
                         }
                         it.isSuccess() -> {
                             swipeRefreshLayout1.isRefreshing = false

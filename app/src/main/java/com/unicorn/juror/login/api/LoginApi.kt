@@ -3,6 +3,7 @@ package com.unicorn.juror.login.api
 import com.unicorn.juror.app.Page
 import com.unicorn.juror.app.Response
 import com.unicorn.juror.courtTrend.CourtTrend
+import com.unicorn.juror.education.model.Material
 import com.unicorn.juror.login.model.UserInfo
 import com.unicorn.juror.registration.model.PersonalInfo
 import io.reactivex.Observable
@@ -32,5 +33,12 @@ interface LoginApi {
 
     @POST("app/tzfjdownload")
     fun downFile(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String): Observable<ResponseBody>
+
+
+    @POST("app/recommendedTeachingMaterials")
+    fun getTeachingMaterialByFydm(@Query("page") page: Int, @Query("rows") rows: Int, @Query("fydm") fydm: String): Observable<Response<Page<Material>>>
+
+    @POST("app/downloadTeachingMaterials")
+    fun downloadMaterial(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String): Observable<ResponseBody>
 
 }
