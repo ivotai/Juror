@@ -1,7 +1,7 @@
-package com.unicorn.juror.main.trend
+package com.unicorn.juror.courtTrend
 
 
-data class Trend(
+data class CourtTrend(
 		val id: String,
 		val content: String,
 		val fbtime: Long,

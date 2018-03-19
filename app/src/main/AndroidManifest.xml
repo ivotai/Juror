@@ -34,7 +34,6 @@
         <activity android:name=".main.MainAct"></activity>
         <activity android:name=".setting.UpdatePwdAct" />
         <activity android:name=".registration.RegistrationAct"></activity>
-        <activity android:name=".tbs.FileDisplayActivity"/>
     </application>
 
 </manifest>

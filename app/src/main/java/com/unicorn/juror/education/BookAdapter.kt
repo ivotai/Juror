@@ -4,7 +4,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.unicorn.juror.R
 import com.unicorn.juror.education.model.Book
-import com.unicorn.juror.tbs.FileDisplayActivity
 import okhttp3.Request
 import java.io.File
 
@@ -17,9 +16,11 @@ class BookAdapter : BaseQuickAdapter<Book, BaseViewHolder>(R.layout.item_book) {
 
     private fun downloadBook(book: Book) {
         val url = book.url
+
+
         val request = Request.Builder().url(url).build()
         val pdf = File(book.path)
-        FileDisplayActivity.show(mContext,book.path)
+//        FileDisplayActivity.show(mContext,book.path)
 
 //        ComponentHolder.appComponent.getClient()
 //                .newCall(request)

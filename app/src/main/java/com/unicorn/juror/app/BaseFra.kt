@@ -10,7 +10,7 @@ abstract class BaseFra : SupportFragment() {
 
     abstract val layoutID: Int
 
-    abstract fun initViews()
+    open abstract fun initViews()
 
     abstract fun bindIntent()
 

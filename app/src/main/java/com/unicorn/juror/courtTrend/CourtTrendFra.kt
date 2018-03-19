@@ -1,4 +1,4 @@
-package com.unicorn.juror.main.trend
+package com.unicorn.juror.courtTrend
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,11 +11,11 @@ import com.unicorn.juror.app.default
 import com.unicorn.juror.dagger.ComponentHolder
 import kotlinx.android.synthetic.main.fra_trend.*
 
-class TrendFra : BaseFra() {
+class CourtTrendFra : BaseFra() {
 
     override val layoutID = R.layout.fra_trend
 
-    private val trendAdapter = TrendAdapter()
+    private val trendAdapter = CourtTrendAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,7 +42,7 @@ class TrendFra : BaseFra() {
     @SuppressLint("CheckResult")
     private fun loadFirst() {
         ComponentHolder.appComponent.getLoginApi()
-                .getNews(page = pageNo, rows = rows)
+                .getCourtTrend(page = pageNo, rows = rows)
                 .default()
                 .subscribe {
                     when {
@@ -73,7 +73,7 @@ class TrendFra : BaseFra() {
     @SuppressLint("CheckResult")
     private fun loadMore() {
         ComponentHolder.appComponent.getLoginApi()
-                .getNews(page = pageNo, rows = rows)
+                .getCourtTrend(page = pageNo, rows = rows)
                 .default()
                 .subscribe {
                     when {
