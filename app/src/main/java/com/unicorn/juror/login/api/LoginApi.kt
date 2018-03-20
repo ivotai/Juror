@@ -1,9 +1,9 @@
 package com.unicorn.juror.login.api
 
-import com.unicorn.juror.education.court.Court
 import com.unicorn.juror.app.Page
 import com.unicorn.juror.app.Response
 import com.unicorn.juror.courtTrend.CourtTrend
+import com.unicorn.juror.education.court.Court
 import com.unicorn.juror.education.model.Material
 import com.unicorn.juror.login.model.UserInfo
 import com.unicorn.juror.registration.model.PersonalInfo
@@ -44,5 +44,8 @@ interface LoginApi {
 
     @POST("app/getTree")
     fun getCourt(): Observable<Response<List<Court>>>
+
+    @POST("app/downloadRecordList")
+    fun getDownloadTeachingMaterial(@Query("page") page: Int, @Query("rows") rows: Int, @Query("id") id: String): Observable<Response<Page<Material>>>
 
 }

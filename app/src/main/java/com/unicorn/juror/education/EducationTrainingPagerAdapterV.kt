@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import com.unicorn.juror.education.material.DownloadMaterialFra
 import com.unicorn.juror.education.material.CountMaterialFra
 
-class EducationTrainingPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+class EducationTrainingPagerAdapterV(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     companion object {
-        val titles = listOf("教材库", "我的书架")
+        val titles = listOf("教材库")
     }
 
     override fun getItem(position: Int): Fragment {

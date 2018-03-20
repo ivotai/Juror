@@ -1,4 +1,4 @@
-package com.unicorn.juror.education
+package com.unicorn.juror.education.material
 
 import android.os.Environment
 import com.chad.library.adapter.base.BaseQuickAdapter

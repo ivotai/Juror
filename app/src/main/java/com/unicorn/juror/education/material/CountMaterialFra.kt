@@ -1,4 +1,4 @@
-package com.unicorn.juror.education.teachingMaterial
+package com.unicorn.juror.education.material
 
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
@@ -12,16 +12,15 @@ import com.unicorn.juror.app.Page
 import com.unicorn.juror.app.PageFra
 import com.unicorn.juror.app.Response
 import com.unicorn.juror.dagger.ComponentHolder
-import com.unicorn.juror.education.MaterialAdapter
 import com.unicorn.juror.education.court.Court
 import com.unicorn.juror.education.model.Material
 import io.reactivex.Observable
-import kotlinx.android.synthetic.main.fra_teaching_material.*
+import kotlinx.android.synthetic.main.fra_court_material.*
 
 
-class TeachingMaterialFra : PageFra<Material>() {
+class CountMaterialFra : PageFra<Material>() {
 
-    override val layoutID = R.layout.fra_teaching_material
+    override val layoutID = R.layout.fra_court_material
 
     override val adapter1 = MaterialAdapter()
 
