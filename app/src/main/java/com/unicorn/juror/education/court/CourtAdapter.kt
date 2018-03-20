@@ -1,7 +1,9 @@
 package com.unicorn.juror.education.court
 
+import com.blankj.utilcode.util.ActivityUtils
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.hwangjr.rxbus.RxBus
 import com.unicorn.juror.R
 
 class CourtAdapter : BaseMultiItemQuickAdapter<Court, BaseViewHolder>(null) {
@@ -13,7 +15,11 @@ class CourtAdapter : BaseMultiItemQuickAdapter<Court, BaseViewHolder>(null) {
 //
 //            1 -> ""
 //            2 -> ""
-                 helper.setText(R.id.tvName,item.dmms);
+        helper.setText(R.id.tvName, item.dmms);
+        helper.setOnClickListener(R.id.tvName, {
+            RxBus.get().post("onCourtSelect", item)
+            ActivityUtils.getTopActivity().finish()
+        })
 //        }
     }
 

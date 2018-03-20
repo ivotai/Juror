@@ -39,7 +39,7 @@ abstract class PageFra<T> : BaseFra() {
     }
 
     @SuppressLint("CheckResult")
-    private fun loadFirstPage() {
+    fun loadFirstPage() {
         adapter1.data.clear()
         loadPage(page = pageNo, rows = rows)
                 .default()
