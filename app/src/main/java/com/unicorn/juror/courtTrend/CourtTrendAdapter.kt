@@ -24,7 +24,7 @@ class CourtTrendAdapter : BaseQuickAdapter<CourtTrend, BaseViewHolder>(R.layout.
     }
 
     private fun download(item: CourtTrend) {
-        ComponentHolder.appComponent.getLoginApi().downFile(item.filename,item.fileurl,item.yfilename)
+        ComponentHolder.appComponent.getLoginApi().downFile(item.filename, item.fileurl, item.yfilename)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
@@ -36,17 +36,17 @@ class CourtTrendAdapter : BaseQuickAdapter<CourtTrend, BaseViewHolder>(R.layout.
 
                             val inputSteam = it.byteStream()
 //                            val total = response.body()?.contentLength()
-                            val pdf = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/1.txt")
+                            val pdf = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/" + item.yfilename)
                             val fos = FileOutputStream(pdf)
-                            var sum  = 0
+                            var sum = 0
                             var len = 0
                             val buf = ByteArray(2048)
-                            while (true){
+                            while (true) {
                                 len = inputSteam.read(buf)
-                                if (len == -1){
+                                if (len == -1) {
                                     break
                                 }
-                                fos.write(buf,0,len)
+                                fos.write(buf, 0, len)
                                 sum += len
                             }
                             fos.flush()
