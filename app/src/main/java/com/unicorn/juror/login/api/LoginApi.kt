@@ -1,6 +1,6 @@
 package com.unicorn.juror.login.api
 
-import com.unicorn.juror.app.Court
+import com.unicorn.juror.education.court.Court
 import com.unicorn.juror.app.Page
 import com.unicorn.juror.app.Response
 import com.unicorn.juror.courtTrend.CourtTrend
