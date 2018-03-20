@@ -15,4 +15,5 @@ fun <T> Observable<Response<T>>.default(): Observable<ViewState<Response<T>>> {
             .map { ViewState(response = it) }
             .onErrorReturn { ViewState(error = it) }
             .startWith(ViewState())
+
 }

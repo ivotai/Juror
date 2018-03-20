@@ -35,12 +35,12 @@ interface LoginApi {
     @POST("app/tzfjdownload")
     fun downFile(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String): Observable<ResponseBody>
 
-
     @POST("app/recommendedTeachingMaterials")
     fun getTeachingMaterialByFydm(@Query("page") page: Int, @Query("rows") rows: Int, @Query("fydm") fydm: String): Observable<Response<Page<Material>>>
 
     @POST("app/downloadTeachingMaterials")
-    fun downloadMaterial(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String): Observable<ResponseBody>
+    fun downloadMaterial(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String,
+                         @Query("appid") appid: String, @Query("trainingid") trainingid: String): Observable<ResponseBody>
 
     @POST("app/getTree")
     fun getCourt(): Observable<Response<List<Court>>>

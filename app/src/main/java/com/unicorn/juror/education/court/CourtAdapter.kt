@@ -17,10 +17,17 @@ class CourtAdapter : BaseMultiItemQuickAdapter<Court, BaseViewHolder>(null) {
 //            2 -> ""
         helper.setText(R.id.tvName, item.dmms);
         helper.setOnClickListener(R.id.tvName, {
+            if (item.isExpanded) {
+                collapse(helper.adapterPosition)
+            } else {
+                expand(helper.adapterPosition)
+            }
+        })
+        helper.setOnLongClickListener(R.id.tvName, {
             RxBus.get().post("onCourtSelect", item)
             ActivityUtils.getTopActivity().finish()
+            true
         })
-//        }
     }
 
     init {

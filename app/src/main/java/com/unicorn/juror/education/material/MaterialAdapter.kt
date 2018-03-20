@@ -4,6 +4,7 @@ import android.os.Environment
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.unicorn.juror.R
+import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.education.model.Material
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,7 +21,8 @@ class MaterialAdapter : BaseQuickAdapter<Material, BaseViewHolder>(R.layout.item
     }
 
     private fun downloadBook(item: Material) {
-        ComponentHolder.appComponent.getLoginApi().downloadMaterial(item.save_name, item.path, item.file_name)
+        val appId = if (AllTime.isVisitor) "" else AllTime.userInfo.id
+        ComponentHolder.appComponent.getLoginApi().downloadMaterial(item.save_name, item.path, item.file_name, appid = appId, trainingid = item.id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(

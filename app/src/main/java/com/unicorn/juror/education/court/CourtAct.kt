@@ -55,22 +55,25 @@ class CourtAct : BaseAct() {
     private fun cope(courts: List<Court>) {
 
         val r00: Court? = courts.lastOrNull { it.dm == AllTime.R00 }
-        r00!!.level = 0
+        r00!!.courtLevel = 0
         r00.children = ArrayList()
         courts.forEach { if (it.sjdm == r00.dm) r00.children.add(it) }
 
         for (r2 in r00.children) {
-            r2.level = 1
+            r2.courtLevel = 1
             r2.children = ArrayList()
             courts.forEach {
                 if (it.sjdm == r2.dm) {
                     r2.children.add(it)
-                    it.level = 2
+                    it.courtLevel = 2
                     it.children = ArrayList()
                 }
             }
         }
-        courtAdapter.setNewData(courts)
+        val list = ArrayList<Court>()
+        list.add(r00)
+        courtAdapter.setNewData(list)
+//        courtAdapter.expand(0)
     }
 
 
