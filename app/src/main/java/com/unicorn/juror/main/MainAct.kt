@@ -28,7 +28,6 @@ class MainAct : BaseAct() {
     }
 
     override fun bindIntent() {
-        // nothing
     }
 
 
