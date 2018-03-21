@@ -12,7 +12,7 @@ import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.login.ui.LoginAct
 import com.unicorn.juror.main.navigationView.HeaderView
-import com.unicorn.juror.setting.UpdatePwdAct
+import com.unicorn.juror.setting.MoreSettingAct
 import kotlinx.android.synthetic.main.act_main.*
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView2
@@ -41,7 +41,7 @@ class MainAct : BaseAct() {
             when (it.itemId) {
                 R.id.navItem1 -> drawLayout.closeDrawers()
                 R.id.navItem2 -> logout()
-                R.id.navItem3 -> Intent(this@MainAct, UpdatePwdAct::class.java).apply {
+                R.id.navItem3 -> Intent(this@MainAct, MoreSettingAct::class.java).apply {
                     startActivity(this)
                 }
             }

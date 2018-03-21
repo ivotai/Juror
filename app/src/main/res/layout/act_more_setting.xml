@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.unicorn.juror.main.appbar.AppBar
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <TextView
+        android:id="@+id/tvSafe"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:text="安全"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/tvUpdatePwd"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="48dp"
+        android:text="修改密码"
+        android:textColor="@color/md_grey_600"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/tvOther"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:text="其他"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/tvAbout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="48dp"
+        android:text="关于"
+        android:textColor="@color/md_grey_600"
+        android:textSize="18dp" />
+
+</LinearLayout>

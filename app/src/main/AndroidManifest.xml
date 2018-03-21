@@ -31,7 +31,8 @@
         <activity android:name=".setting.UpdatePwdAct" />
         <activity android:name=".registration.RegistrationAct" />
         <activity android:name=".education.court.CourtAct" />
-        <activity android:name=".courtTrend.CourtTrendDetailAct"></activity>
+        <activity android:name=".courtTrend.CourtTrendDetailAct" />
+        <activity android:name=".setting.MoreSettingAct"></activity>
     </application>
 
 </manifest>
