@@ -33,7 +33,7 @@ interface LoginApi {
     fun getCourtTrend(@Query("page") page: Int, @Query("rows") rows: Int): Observable<Response<Page<CourtTrend>>>
 
     @POST("app/tzfjdownload")
-    fun downFile(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String): Observable<ResponseBody>
+    fun downAttachment(@Query("filename") filename: String, @Query("fileurl") fileurl: String, @Query("xsmc") xsmc: String): Observable<ResponseBody>
 
     @POST("app/recommendedTeachingMaterials")
     fun getTeachingMaterialByFydm(@Query("page") page: Int, @Query("rows") rows: Int, @Query("fydm") fydm: String): Observable<Response<Page<Material>>>

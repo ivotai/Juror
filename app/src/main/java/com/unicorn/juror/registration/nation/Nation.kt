@@ -1,5 +1,7 @@
 package com.unicorn.juror.registration.nation
 
+import com.unicorn.juror.util.Label
+
 class Nation {
 
     companion object {

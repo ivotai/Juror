@@ -15,7 +15,7 @@ import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.registration.model.PersonalInfo
 import kotlinx.android.synthetic.main.fra_personal_info.*
 
-class PersonalInfoFra : BaseFra() {
+class RegistrationFra : BaseFra() {
 
     override val layoutID = R.layout.fra_personal_info
     override fun initViews() {

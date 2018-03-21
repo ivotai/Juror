@@ -11,12 +11,13 @@ import com.unicorn.juror.R
 import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.app.clicks
 import com.unicorn.juror.app.default
-import com.unicorn.juror.bottomSheet.BottomSheetUtils
-import com.unicorn.juror.bottomSheet.DialogUtils
 import com.unicorn.juror.dagger.ComponentHolder
-import com.unicorn.juror.registration.nation.Label
 import com.unicorn.juror.registration.nation.Nation
+import com.unicorn.juror.util.BottomSheetUtils
+import com.unicorn.juror.util.DialogUtils
+import com.unicorn.juror.util.Label
 import kotlinx.android.synthetic.main.act_registration.*
+import org.joda.time.DateTime
 import java.util.*
 
 class RegistrationAct : BaseAct() {
@@ -75,7 +76,8 @@ class RegistrationAct : BaseAct() {
             val now = Calendar.getInstance()
             DatePickerDialog.newInstance(
                     { dialog, year, monthOfYear, dayOfMonth ->
-                        birthday = "$year-$monthOfYear-$dayOfMonth"
+                        birthday = DateTime(year, monthOfYear, dayOfMonth, 0, 0).toString("yyyy-MM-dd")
+//                                "$year-$monthOfYear-$dayOfMonth"
                         tvBirthday.text = birthday
                     },
                     now.get(Calendar.YEAR),
@@ -86,10 +88,10 @@ class RegistrationAct : BaseAct() {
         tvSubmit.clicks().subscribe {
             var mask: MaterialDialog? = null
             ComponentHolder.appComponent.getLoginApi()
-                    .register(name = etName.text.toString(),sex = tvSex.text.toString(),
-                            nativelyPlace = etNativePlace.text.toString(),nation = nation!!.value,
-                            birthday = tvBirthday.text.toString(),identifyCard = etIdentityCard.text.toString(),
-                            telephone = etTelephone.text.toString(),  address = etAddress.text.toString()
+                    .register(name = etName.text.toString(), sex = tvSex.text.toString(),
+                            nativelyPlace = etNativePlace.text.toString(), nation = nation!!.value,
+                            birthday = tvBirthday.text.toString(), identifyCard = etIdentityCard.text.toString(),
+                            telephone = etTelephone.text.toString(), address = etAddress.text.toString()
                     )
                     .default()
                     .subscribe {

@@ -1,4 +1,4 @@
-package com.unicorn.juror.bottomSheet
+package com.unicorn.juror.util
 
 import android.content.Context
 import com.afollestad.materialdialogs.MaterialDialog

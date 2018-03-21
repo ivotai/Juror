@@ -8,7 +8,7 @@ import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.app.clicks
 import com.unicorn.juror.app.default
-import com.unicorn.juror.bottomSheet.DialogUtils
+import com.unicorn.juror.util.DialogUtils
 import com.unicorn.juror.dagger.ComponentHolder
 import kotlinx.android.synthetic.main.act_update_pwd.*
 

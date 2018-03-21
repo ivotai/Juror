@@ -1,4 +1,4 @@
-package com.unicorn.juror.bottomSheet
+package com.unicorn.juror.util
 
 import android.annotation.SuppressLint
 import android.content.Context
