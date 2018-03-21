@@ -32,7 +32,8 @@
         <activity android:name=".registration.RegistrationAct" />
         <activity android:name=".education.court.CourtAct" />
         <activity android:name=".courtTrend.CourtTrendDetailAct" />
-        <activity android:name=".setting.MoreSettingAct"></activity>
+        <activity android:name=".setting.MoreSettingAct" />
+        <activity android:name=".setting.AboutAct"></activity>
     </application>
 
 </manifest>

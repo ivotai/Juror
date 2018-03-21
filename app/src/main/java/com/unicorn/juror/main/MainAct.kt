@@ -36,7 +36,11 @@ class MainAct : BaseAct() {
         if (AllTime.isVisitor) {
             drawLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         }
-        navigation.addHeaderView(HeaderView(context = this))
+        val headerView = HeaderView(this)
+        if (!AllTime.isVisitor) {
+            headerView.tvName.text = AllTime.userInfo.userName
+        }
+        navigation.addHeaderView(headerView)
         navigation.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navItem1 -> drawLayout.closeDrawers()

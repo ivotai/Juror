@@ -16,10 +16,12 @@ class HeaderView : FrameLayout {
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
+    var tvName: TextView
+
     init {
         val view = LayoutInflater.from(context).inflate(R.layout.navigation_header, this)
 
-        val tvName = view.findViewById<TextView>(R.id.lName)
+        tvName = view.findViewById<TextView>(R.id.lName)
         GradientDrawable().apply {
             cornerRadius = 1000f
             setColor(Color.parseColor("#1063b4"))
