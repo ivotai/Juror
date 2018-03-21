@@ -46,6 +46,6 @@ interface LoginApi {
     fun getCourt(): Observable<Response<List<Court>>>
 
     @POST("app/downloadRecordList")
-    fun getDownloadTeachingMaterial(@Query("page") page: Int, @Query("rows") rows: Int, @Query("id") id: String): Observable<Response<Page<Material>>>
+    fun getDownloadTeachingMaterial(@Query("page") page: Int, @Query("rows") rows: Int, @Query("appid") appid: String): Observable<Response<Page<Material>>>
 
 }

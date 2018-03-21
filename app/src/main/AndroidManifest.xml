@@ -30,7 +30,8 @@
         <activity android:name=".main.MainAct" />
         <activity android:name=".setting.UpdatePwdAct" />
         <activity android:name=".registration.RegistrationAct" />
-        <activity android:name=".education.court.CourtAct"></activity>
+        <activity android:name=".education.court.CourtAct" />
+        <activity android:name=".courtTrend.CourtTrendDetailAct"></activity>
     </application>
 
 </manifest>

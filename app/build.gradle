@@ -61,8 +61,8 @@ dependencies {
     implementation 'com.mikepenz:iconics-views:3.0.3@aar'
     implementation 'com.philliphsu:bottomsheetpickers:2.4.1'
     implementation 'net.danlew:android.joda:2.9.9.2'
-    compile 'com.hwangjr.rxbus:rxbus:2.0.0'
-    compile 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+    implementation 'com.hwangjr.rxbus:rxbus:2.0.0'
+
 //    implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
 }
 kapt {

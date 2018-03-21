@@ -1,7 +1,6 @@
 package com.unicorn.juror.dagger
 
 import com.facebook.stetho.okhttp3.StethoInterceptor
-import com.unicorn.juror.app.NobodyConverterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -27,7 +26,7 @@ class RetrofitModule {
     fun provideRetrofit(@Named("baseUrl") baseUrl: String, okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
-            .addConverterFactory(NobodyConverterFactory())
+//            .addConverterFactory(NobodyConverterFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

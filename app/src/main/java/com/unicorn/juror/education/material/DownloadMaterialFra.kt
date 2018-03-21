@@ -25,6 +25,6 @@ class DownloadMaterialFra:PageFra<Material>(){
         get() = swipeRefreshLayout
 
     override fun loadPage(page: Int, rows: Int): Observable<Response<Page<Material>>> {
-        return ComponentHolder.appComponent.getLoginApi().getDownloadTeachingMaterial(page = page, rows = rows,id = AllTime.userInfo.id)
+        return ComponentHolder.appComponent.getLoginApi().getDownloadTeachingMaterial(page = page, rows = rows,appid = AllTime.userInfo.id)
     }
 }

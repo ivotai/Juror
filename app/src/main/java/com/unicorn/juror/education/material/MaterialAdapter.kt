@@ -36,8 +36,8 @@ class MaterialAdapter : BaseQuickAdapter<Material, BaseViewHolder>(R.layout.item
 //                            val total = response.body()?.contentLength()
                             val pdf = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/" + item.file_name)
                             val fos = FileOutputStream(pdf)
-                            var sum = 0
-                            var len = 0
+//                            var s/um = 0
+                            var len: Int
                             val buf = ByteArray(2048)
                             while (true) {
                                 len = inputSteam.read(buf)
@@ -45,7 +45,7 @@ class MaterialAdapter : BaseQuickAdapter<Material, BaseViewHolder>(R.layout.item
                                     break
                                 }
                                 fos.write(buf, 0, len)
-                                sum += len
+//                                sum += len
                             }
                             fos.flush()
                         }
