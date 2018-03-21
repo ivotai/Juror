@@ -9,12 +9,12 @@ import com.unicorn.juror.registration.RegistrationFra
 class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     override fun getItem(position: Int) = when (position) {
-        0 -> CourtTrendFra()
-        1 -> RegistrationFra()
-        3 -> EducationTrainingFra()
+        0 -> RegistrationFra()
+        1 -> CourtTrendFra()
+        2 -> EducationTrainingFra()
         else -> SimpleFra()
     }
 
-    override fun getCount() = 5
+    override fun getCount() = 4
 
 }

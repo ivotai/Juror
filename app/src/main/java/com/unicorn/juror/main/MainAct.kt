@@ -69,20 +69,20 @@ class MainAct : BaseAct() {
         val navigationController =
                 if (AllTime.isVisitor)
                     tab.custom()
-                            .addItem(newItem(Ionicons.Icon.ion_fireball, Ionicons.Icon.ion_fireball, "热点资讯"))
+//                            .addItem(newItem(Ionicons.Icon.ion_fireball, Ionicons.Icon.ion_fireball, "热点资讯"))
                             .addItem(newItem(Ionicons.Icon.ion_ios_people, Ionicons.Icon.ion_ios_people, "互动专区"))
                             .addItem(newItem(Ionicons.Icon.ion_ios_bookmarks, Ionicons.Icon.ion_ios_bookmarks, "教育培训"))
                             .build()
                 else
                     tab.custom()
-                            .addItem(newItem(Ionicons.Icon.ion_fireball, Ionicons.Icon.ion_fireball, "热点资讯"))
+//                            .addItem(newItem(Ionicons.Icon.ion_fireball, Ionicons.Icon.ion_fireball, "热点资讯"))
                             .addItem(newItem(Ionicons.Icon.ion_university, Ionicons.Icon.ion_university, "报名申请"))
                             .addItem(newItem(Ionicons.Icon.ion_ios_people, Ionicons.Icon.ion_ios_people, "互动专区"))
                             .addItem(newItem(Ionicons.Icon.ion_ios_bookmarks, Ionicons.Icon.ion_ios_bookmarks, "教育培训"))
                             .addItem(newItem(Ionicons.Icon.ion_android_person, Ionicons.Icon.ion_android_person, "个人业务"))
                             .build()
         navigationController.setupWithViewPager(viewPager)
-        viewPager.offscreenPageLimit = if (AllTime.isVisitor) 2 else 4
+        viewPager.offscreenPageLimit = if (AllTime.isVisitor) 1 else 3
         viewPager.adapter = if (AllTime.isVisitor) MainPagerAdapterV(supportFragmentManager) else MainPagerAdapter(supportFragmentManager)
 
     }
