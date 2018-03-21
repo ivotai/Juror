@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import io.reactivex.Observable
@@ -31,6 +30,8 @@ abstract class PageFra<T> : BaseFra() {
             adapter1.bindToRecyclerView(this)
             adapter1.setEnableLoadMore(true)
             adapter1.setOnLoadMoreListener({ loadNextPage() }, recyclerView1)
+//            adapter1.setLoadMoreView(SimpleLoadMoreView())
+//            adapter1.setLoadMoreView(CustomLoadMoreView())
         }
     }
 
@@ -54,7 +55,7 @@ abstract class PageFra<T> : BaseFra() {
                         it.isSuccess() -> {
                             swipeRefreshLayout1.isRefreshing = false
                             val response = it.response!!
-                            ToastUtils.showShort(response.msg)
+//                            ToastUtils.showShort(response.msg)
                             adapter1.setNewData(response.data.rows)
                             if (adapter1.data.size == response.data.total) {
                                 adapter1.loadMoreEnd()
@@ -76,7 +77,7 @@ abstract class PageFra<T> : BaseFra() {
                         }
                         it.isSuccess() -> {
                             val response = it.response!!
-                            ToastUtils.showShort(response.msg)
+//                            ToastUtils.showShort(response.msg)
                             adapter1.loadMoreComplete()
                             adapter1.addData(response.data.rows)
                             adapter1.notifyDataSetChanged()
