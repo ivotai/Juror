@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Environment
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.dagger.ComponentHolder
+import com.unicorn.juror.tbs.FileDisplayActivity
 import com.unicorn.juror.util.DialogUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
@@ -23,13 +24,13 @@ data class Material(
         val path: String,
         val file_name: String,
         val downloads: Long
-){
+) {
 
     val file get() = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), save_name)
 
     val isExist get() = file.exists()
 
-    private fun download(context:Context){
+    fun download(context: Context) {
         val mask = DialogUtils.showLoading(context, "下载材料中...")
         val appId = if (AllTime.isVisitor) "" else AllTime.userInfo.id
         ComponentHolder.appComponent.getLoginApi().downloadMaterial(save_name, path, file_name, appid = appId, trainingid = id)
@@ -37,10 +38,10 @@ data class Material(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                         onError = {
-                            it
+                            mask.dismiss()
                         },
                         onNext = {
-                            it
+                            mask.dismiss()
                             val inputSteam = it.byteStream()
                             val fos = FileOutputStream(file)
                             var len: Int
@@ -58,7 +59,8 @@ data class Material(
                 )
     }
 
-        // todo
-    fun open(context: Context){
+    fun open(context: Context) {
+        FileDisplayActivity.show(context, file.path)
     }
+
 }

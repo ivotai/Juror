@@ -63,7 +63,7 @@ dependencies {
     implementation 'net.danlew:android.joda:2.9.9.2'
     implementation 'com.hwangjr.rxbus:rxbus:2.0.0'
 
-//    implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
+    implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
 }
 kapt {
     generateStubs = true

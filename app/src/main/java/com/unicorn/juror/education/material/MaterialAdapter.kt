@@ -11,14 +11,13 @@ class MaterialAdapter : BaseQuickAdapter<Material, BaseViewHolder>(R.layout.item
     override fun convert(helper: BaseViewHolder, item: Material) {
         helper.setText(R.id.tvTitle, item.title)
         helper.setText(R.id.tvContent, item.content)
-        helper.setText(R.id.tvPublicTime,DateTime(item.pulc_time).toString("yyyy-MM-dd") )
+        helper.setText(R.id.tvPublicTime, DateTime(item.pulc_time).toString("yyyy-MM-dd"))
 
-        helper.setOnClickListener(R.id.tvContent, {
-
-
+        helper.setOnClickListener(R.id.item, {
+            if (item.isExist) item.open(mContext)
+            else item.download(mContext)
         })
     }
-
 
 
 }

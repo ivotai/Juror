@@ -33,7 +33,8 @@
         <activity android:name=".education.court.CourtAct" />
         <activity android:name=".courtTrend.CourtTrendDetailAct" />
         <activity android:name=".setting.MoreSettingAct" />
-        <activity android:name=".setting.AboutAct"></activity>
+        <activity android:name=".setting.AboutAct" />
+        <activity android:name=".tbs.FileDisplayActivity" />
     </application>
 
 </manifest>

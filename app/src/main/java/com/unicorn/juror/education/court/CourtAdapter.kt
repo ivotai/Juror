@@ -17,6 +17,9 @@ class CourtAdapter : BaseMultiItemQuickAdapter<Court, BaseViewHolder>(null) {
 //            2 -> ""
         helper.setText(R.id.tvName, item.dmms);
         helper.setOnClickListener(R.id.tvName, {
+            if (helper.adapterPosition == -1) {
+                return@setOnClickListener
+            }
             if (item.isExpanded) {
                 collapse(helper.adapterPosition)
             } else {
