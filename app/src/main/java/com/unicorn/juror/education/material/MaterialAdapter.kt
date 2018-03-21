@@ -13,7 +13,10 @@ class MaterialAdapter : BaseQuickAdapter<Material, BaseViewHolder>(R.layout.item
         helper.setText(R.id.tvContent, item.content)
         helper.setText(R.id.tvPublicTime,DateTime(item.pulc_time).toString("yyyy-MM-dd") )
 
-//        helper.setOnClickListener(R.id.tvContent, { downloadBook(item) })
+        helper.setOnClickListener(R.id.tvContent, {
+
+
+        })
     }
 
 

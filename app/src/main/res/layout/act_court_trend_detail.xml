@@ -15,4 +15,33 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <LinearLayout
+        android:background="@color/md_grey_100"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:singleLine="true"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:textSize="14dp"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/etComment"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1" />
+
+        <com.mikepenz.iconics.view.IconicsTextView
+            android:id="@+id/itvSend"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:text="{ion-android-send}"
+            android:textColor="@color/md_grey_700"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
 </LinearLayout>
