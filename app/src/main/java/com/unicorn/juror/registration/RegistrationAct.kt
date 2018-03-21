@@ -3,6 +3,7 @@ package com.unicorn.juror.registration
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.text.TextUtils
 import com.afollestad.materialdialogs.MaterialDialog
 import com.blankj.utilcode.util.ConvertUtils
 import com.blankj.utilcode.util.ToastUtils
@@ -55,7 +56,7 @@ class RegistrationAct : BaseAct() {
     @SuppressLint("CheckResult")
     override fun bindIntent() {
         tvSex.clicks().subscribe {
-            BottomSheetUtils.show(this, "选择婚姻状况", listOf("已婚", "未婚"), object : BottomSheetUtils.PickerListener {
+            BottomSheetUtils.show(this, "选择性别", listOf("男", "女"), object : BottomSheetUtils.PickerListener {
                 override fun onConfirm(o: Any) {
                     tvSex.text = o as String
                 }
@@ -66,30 +67,39 @@ class RegistrationAct : BaseAct() {
                 BottomSheetUtils.show(this, "选择民族", it, object : BottomSheetUtils.PickerListener {
                     override fun onConfirm(o: Any) {
                         tvNation.text = (o as Label).text
-                        nation = o
+                        mzdm = o.value
                     }
                 })
             }
         }
-        // todo
         tvBirthday.clicks().subscribe {
             val now = Calendar.getInstance()
             DatePickerDialog.newInstance(
-                    { dialog, year, monthOfYear, dayOfMonth ->
-                        birthday = DateTime(year, monthOfYear, dayOfMonth, 0, 0).toString("yyyy-MM-dd")
-//                                "$year-$monthOfYear-$dayOfMonth"
-                        tvBirthday.text = birthday
-                    },
+                    { _, year, monthOfYear, dayOfMonth -> tvBirthday.text = DateTime(year, monthOfYear + 1, dayOfMonth, 0, 0).toString("yyyy-MM-dd") },
                     now.get(Calendar.YEAR),
                     now.get(Calendar.MONTH),
                     now.get(Calendar.DAY_OF_MONTH)).show(supportFragmentManager, "dpd")
 
         }
         tvSubmit.clicks().subscribe {
+            val list = listOf(
+                    etName to "姓名", tvSex to "性别", etNativePlace to "籍贯", tvNation to "民族",
+                    tvBirthday to "出生日期", etIdentityCard to "身份证号", etTelephone to "联系手机", etAddress to "住址"
+            )
+            var result = true
+            for (pair in list) {
+                if (TextUtils.isEmpty(pair.first.text)) {
+                    ToastUtils.showShort("${pair.second}不能为空")
+                    result = false
+                    break
+                }
+            }
+            if (!result) return@subscribe
+
             var mask: MaterialDialog? = null
             ComponentHolder.appComponent.getLoginApi()
                     .register(name = etName.text.toString(), sex = tvSex.text.toString(),
-                            nativelyPlace = etNativePlace.text.toString(), nation = nation!!.value,
+                            nativelyPlace = etNativePlace.text.toString(), mzdm = mzdm,
                             birthday = tvBirthday.text.toString(), identifyCard = etIdentityCard.text.toString(),
                             telephone = etTelephone.text.toString(), address = etAddress.text.toString()
                     )
@@ -119,6 +129,6 @@ class RegistrationAct : BaseAct() {
         }
     }
 
-    var nation: Label? = null
-    var birthday: String? = null
+    lateinit var mzdm: String
+
 }

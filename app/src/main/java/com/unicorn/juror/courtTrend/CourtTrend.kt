@@ -2,9 +2,9 @@ package com.unicorn.juror.courtTrend
 
 import android.content.Context
 import android.os.Environment
-import com.unicorn.juror.util.OpenFileUtil
-import com.unicorn.juror.util.DialogUtils
 import com.unicorn.juror.dagger.ComponentHolder
+import com.unicorn.juror.util.DialogUtils
+import com.unicorn.juror.util.OpenFileUtil
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
@@ -24,7 +24,7 @@ data class CourtTrend(
         val yfilename: String
 ) : Serializable {
 
-    val attachment get() = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), yfilename)
+    val attachment get() = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename)
 
     val attachmentPath get() = attachment.path
 

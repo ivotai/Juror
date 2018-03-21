@@ -22,7 +22,7 @@ interface LoginApi {
                   @Query("newpassword") newPwd: String): Observable<Response<UserInfo>>
 
     @POST("app/addPersonMessage")
-    fun register(@Query("name") name: String, @Query("xb") sex: String, @Query("jg") nativelyPlace: String, @Query("mzdm") nation: String,
+    fun register(@Query("name") name: String, @Query("xb") sex: String, @Query("jg") nativelyPlace: String, @Query("mzdm") mzdm: String,
                  @Query("birthday") birthday: String, @Query("sfhm") identifyCard: String, @Query("lxsj") telephone: String, @Query("zz") address: String)
             : Observable<Response<Any>>
 
