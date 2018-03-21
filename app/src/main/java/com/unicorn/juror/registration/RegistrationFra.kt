@@ -6,7 +6,6 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import com.blankj.utilcode.util.ConvertUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.juror.R
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseFra
@@ -68,7 +67,7 @@ class RegistrationFra : BaseFra() {
                         }
                         it.isSuccess() -> {
                             val response = it.response!!
-                            ToastUtils.showShort(response.msg)
+//                            ToastUtils.showShort(response.msg)
                             render(response.data)
                         }
                     }

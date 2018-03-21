@@ -6,12 +6,11 @@
     android:id="@+id/shadow_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="4dp"
     android:foreground="?attr/selectableItemBackground"
-    android:padding="10dp"
-    app:cornerRadius="4dp"
-    app:shadowMargin="10dp"
-    app:shadowRadius="14dp">
+    app:shadowMarginLeft="16dp"
+    app:shadowMarginRight="16dp"
+    app:shadowMarginBottom="16dp"
+    app:shadowRadius="2dp">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -51,10 +50,10 @@
             tools:ignore="SpUsage" />
 
         <TextView
-            android:id="@+id/tvFbTime"
+            android:id="@+id/tvPublicTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="2016-3-18"

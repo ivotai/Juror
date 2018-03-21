@@ -27,4 +27,5 @@ class DownloadMaterialFra:PageFra<Material>(){
     override fun loadPage(page: Int, rows: Int): Observable<Response<Page<Material>>> {
         return ComponentHolder.appComponent.getLoginApi().getDownloadTeachingMaterial(page = page, rows = rows,appid = AllTime.userInfo.id)
     }
+
 }

@@ -2,7 +2,6 @@ package com.unicorn.juror.education.court
 
 import android.annotation.SuppressLint
 import android.support.v7.widget.LinearLayoutManager
-import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.juror.R
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseAct
@@ -45,7 +44,7 @@ class CourtAct : BaseAct() {
                         }
                         it.isSuccess() -> {
                             val response = it.response!!
-                            ToastUtils.showShort(response.msg)
+//                            ToastUtils.showShort(response.msg)
                             cope(response.data)
                         }
                     }

@@ -1,56 +1,21 @@
 package com.unicorn.juror.education.material
 
-import android.os.Environment
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.unicorn.juror.R
-import com.unicorn.juror.app.AllTime
-import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.education.model.Material
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.schedulers.Schedulers
-import java.io.File
-import java.io.FileOutputStream
+import org.joda.time.DateTime
 
 class MaterialAdapter : BaseQuickAdapter<Material, BaseViewHolder>(R.layout.item_book) {
 
     override fun convert(helper: BaseViewHolder, item: Material) {
-        helper.setText(R.id.tvTitle, item.id)
-        helper.setOnClickListener(R.id.tvContent, { downloadBook(item) })
+        helper.setText(R.id.tvTitle, item.title)
+        helper.setText(R.id.tvContent, item.content)
+        helper.setText(R.id.tvPublicTime,DateTime(item.pulc_time).toString("yyyy-MM-dd") )
+
+//        helper.setOnClickListener(R.id.tvContent, { downloadBook(item) })
     }
 
-    private fun downloadBook(item: Material) {
-        val appId = if (AllTime.isVisitor) "" else AllTime.userInfo.id
-        ComponentHolder.appComponent.getLoginApi().downloadMaterial(item.save_name, item.path, item.file_name, appid = appId, trainingid = item.id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeBy(
-                        onError = {
-                            it
-                        },
-                        onNext = {
-                            it
 
-                            val inputSteam = it.byteStream()
-//                            val total = response.body()?.contentLength()
-                            val pdf = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/" + item.file_name)
-                            val fos = FileOutputStream(pdf)
-//                            var s/um = 0
-                            var len: Int
-                            val buf = ByteArray(2048)
-                            while (true) {
-                                len = inputSteam.read(buf)
-                                if (len == -1) {
-                                    break
-                                }
-                                fos.write(buf, 0, len)
-//                                sum += len
-                            }
-                            fos.flush()
-                        }
-                )
-
-    }
 
 }
