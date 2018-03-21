@@ -5,6 +5,7 @@ import android.graphics.Paint
 import android.os.Environment
 import com.unicorn.juror.R
 import com.unicorn.juror.app.BaseAct
+import com.unicorn.juror.app.Constant
 import com.unicorn.juror.app.clicks
 import com.unicorn.juror.bottomSheet.DialogUtils
 import com.unicorn.juror.dagger.ComponentHolder
@@ -19,10 +20,10 @@ class CourtTrendDetailAct : BaseAct() {
 
     override val layoutID = R.layout.act_court_trend
 
-    lateinit var courtTrend: CourtTrend
+    private lateinit var courtTrend: CourtTrend
 
     override fun initViews() {
-        courtTrend = intent.getSerializableExtra("courtTrend") as CourtTrend
+        courtTrend = intent.getSerializableExtra(Constant.COURT_TREND) as CourtTrend
         appBar.setTitle(courtTrend.title)
         appBar.showBackAction()
         tvAttachment.paint.flags = Paint.UNDERLINE_TEXT_FLAG

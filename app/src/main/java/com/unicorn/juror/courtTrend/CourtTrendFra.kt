@@ -8,11 +8,11 @@ import com.unicorn.juror.app.PageFra
 import com.unicorn.juror.app.Response
 import com.unicorn.juror.dagger.ComponentHolder
 import io.reactivex.Observable
-import kotlinx.android.synthetic.main.fra_trend.*
+import kotlinx.android.synthetic.main.fra_court_trend.*
 
 class CourtTrendFra : PageFra<CourtTrend>() {
 
-    override val layoutID = R.layout.fra_trend
+    override val layoutID = R.layout.fra_court_trend
 
     override val adapter1 = CourtTrendAdapter()
 

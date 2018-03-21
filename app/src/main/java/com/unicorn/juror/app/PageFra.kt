@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.unicorn.juror.R
 import io.reactivex.Observable
 
 abstract class PageFra<T> : BaseFra() {
@@ -25,6 +26,7 @@ abstract class PageFra<T> : BaseFra() {
 
     override fun initViews() {
         swipeRefreshLayout1.setOnRefreshListener { loadFirstPage() }
+        swipeRefreshLayout1.setColorSchemeResources(R.color.colorPrimary)
         recyclerView1.apply {
             layoutManager = LinearLayoutManager(context)
             adapter1.bindToRecyclerView(this)

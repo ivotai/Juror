@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Paint
 import com.afollestad.materialdialogs.MaterialDialog
-import com.blankj.utilcode.util.ToastUtils
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.unicorn.juror.R
@@ -75,7 +74,7 @@ class LoginAct : BaseAct() {
                             mask?.dismiss()
                             val response = it.response!!
                             if (!response.flag) {
-                                ToastUtils.showShort(response.msg)
+//                                ToastUtils.showShort(response.msg)
                             } else {
                                 AllTime.userInfo = response.data
                                 AllTime.isVisitor = false
