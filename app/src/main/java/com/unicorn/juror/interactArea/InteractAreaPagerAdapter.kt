@@ -12,7 +12,7 @@ class InteractAreaPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(
     }
 
     override fun getItem(position: Int): Fragment {
-        return if (position == 0) CourtTrendFra() else CourtTrendFra()
+        return if (position == 0) CourtTrendFra() else WebsiteInteractFra()
     }
 
     override fun getCount() = titles.size

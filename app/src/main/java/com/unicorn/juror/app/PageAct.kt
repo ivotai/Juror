@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.unicorn.juror.R
 import io.reactivex.Observable
+import io.reactivex.disposables.CompositeDisposable
 
 abstract class PageAct<T> : BaseAct() {
 
@@ -23,6 +24,8 @@ abstract class PageAct<T> : BaseAct() {
 
     private val pageNo
         get() = adapter1.data.size / rows
+
+    private val compositeDisposable = CompositeDisposable()
 
     override fun initViews() {
         swipeRefreshLayout1.setOnRefreshListener { loadFirstPage() }
@@ -64,7 +67,7 @@ abstract class PageAct<T> : BaseAct() {
                             }
                         }
                     }
-                }
+                }.let { compositeDisposable.add(it)  }
     }
 
     @SuppressLint("CheckResult")
@@ -88,7 +91,12 @@ abstract class PageAct<T> : BaseAct() {
                             }
                         }
                     }
-                }
+                }.let { compositeDisposable.add(it)  }
+    }
+
+    override fun onDestroy() {
+        compositeDisposable.dispose()
+        super.onDestroy()
     }
 
 }

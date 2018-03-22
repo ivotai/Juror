@@ -62,8 +62,9 @@ dependencies {
     implementation 'com.philliphsu:bottomsheetpickers:2.4.1'
     implementation 'net.danlew:android.joda:2.9.9.2'
     implementation 'com.hwangjr.rxbus:rxbus:2.0.0'
-
+    implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
     implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
+    compile 'cat.ereza:customactivityoncrash:2.2.0'
 }
 kapt {
     generateStubs = true

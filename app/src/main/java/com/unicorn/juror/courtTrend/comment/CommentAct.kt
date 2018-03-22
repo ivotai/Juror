@@ -5,6 +5,7 @@ import android.graphics.drawable.GradientDrawable
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.RecyclerView
+import android.view.View.GONE
 import com.blankj.utilcode.util.ConvertUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.juror.R
@@ -12,8 +13,11 @@ import com.unicorn.juror.app.*
 import com.unicorn.juror.courtTrend.CourtTrend
 import com.unicorn.juror.courtTrend.HeaderView
 import com.unicorn.juror.dagger.ComponentHolder
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.act_comment.*
+
+
 
 class CommentAct : PageAct<Comment>() {
     override val adapter1 = CommentAdapter()
@@ -46,11 +50,22 @@ class CommentAct : PageAct<Comment>() {
         headerView.tvAttachment.text = "附件: ${courtTrend.yfilename}"
         adapter1.setHeaderView(headerView)
 
+        recyclerView1.addItemDecoration(
+                HorizontalDividerItemDecoration.Builder(this)
+                        .colorResId(R.color.md_grey_400)
+                        .size(1)
+                        .margin(ConvertUtils.dp2px(16f),ConvertUtils.dp2px(16f))
+                        .build())
+
         GradientDrawable().apply {
             setStroke(1, ContextCompat.getColor(this@CommentAct, R.color.md_grey_300))
             setColor(ContextCompat.getColor(this@CommentAct, R.color.md_grey_200))
             cornerRadius = ConvertUtils.dp2px(20f).toFloat()
         }.let { etComment.background = it }
+
+        if(AllTime.isVisitor){
+            llComment.visibility = GONE
+        }
     }
 
     @SuppressLint("CheckResult")
@@ -90,6 +105,7 @@ class CommentAct : PageAct<Comment>() {
                             etComment.setText("")
                             etComment.clearFocus()
                             loadFirstPage()
+                            recyclerView1.scrollToPosition(0)
                         }
                     }
                 }
