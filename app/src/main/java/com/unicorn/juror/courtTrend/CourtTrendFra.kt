@@ -26,9 +26,5 @@ class CourtTrendFra : PageFra<CourtTrend>() {
         return ComponentHolder.appComponent.getLoginApi().getCourtTrend(page, rows)
     }
 
-    override fun initViews() {
-        appBar.setTitle("法院动态")
-        super.initViews()
-    }
 
 }

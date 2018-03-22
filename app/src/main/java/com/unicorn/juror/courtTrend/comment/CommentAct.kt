@@ -3,37 +3,48 @@ package com.unicorn.juror.courtTrend.comment
 import android.annotation.SuppressLint
 import android.graphics.drawable.GradientDrawable
 import android.support.v4.content.ContextCompat
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.RecyclerView
 import com.blankj.utilcode.util.ConvertUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.juror.R
 import com.unicorn.juror.app.*
 import com.unicorn.juror.courtTrend.CourtTrend
 import com.unicorn.juror.courtTrend.HeaderView
 import com.unicorn.juror.dagger.ComponentHolder
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.act_comment.*
 
-class CommentAct : BaseAct() {
+class CommentAct : PageAct<Comment>() {
+    override val adapter1 = CommentAdapter()
+    override val recyclerView1: RecyclerView
+        get() = recyclerView
+    override val swipeRefreshLayout1: SwipeRefreshLayout
+        get() = swipeRefreshLayout
+
+    override fun loadPage(page: Int, rows: Int): Observable<Response<Page<Comment>>> {
+       return ComponentHolder.appComponent.getLoginApi()
+                .getComment(page = page, rows = rows, courtTrendId = courtTrend.id)
+    }
 
     override val layoutID = R.layout.act_comment
 
     private lateinit var courtTrend: CourtTrend
 
-    private val commentAdapter = CommentAdapter()
 
     private lateinit var headerView: HeaderView
 
     @SuppressLint("SetTextI18n")
     override fun initViews() {
+        super.initViews()
         courtTrend = intent.getSerializableExtra(Constant.COURT_TREND) as CourtTrend
         appBar.setTitle(courtTrend.title)
         appBar.showBackAction()
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
         headerView = HeaderView(this)
         headerView.tvContent.text = courtTrend.content
         headerView.tvAttachment.text = "附件: ${courtTrend.yfilename}"
-        commentAdapter.setHeaderView(headerView)
-        recyclerView.adapter = commentAdapter
+        adapter1.setHeaderView(headerView)
 
         GradientDrawable().apply {
             setStroke(1, ContextCompat.getColor(this@CommentAct, R.color.md_grey_300))
@@ -44,6 +55,7 @@ class CommentAct : BaseAct() {
 
     @SuppressLint("CheckResult")
     override fun bindIntent() {
+        super.bindIntent()
         headerView.tvAttachment.clicks().subscribe {
             openAttachment(courtTrend)
         }
@@ -74,38 +86,14 @@ class CommentAct : BaseAct() {
                         }
                         it.isSuccess() -> {
                             val response = it.response!!
-                            if (!response.flag) {
-//                                ToastUtils.showShort(response.msg)
-                            }
+                            ToastUtils.showShort(response.msg)
+                            etComment.setText("")
+                            etComment.clearFocus()
+                            loadFirstPage()
                         }
                     }
                 }
     }
 
-
-    @SuppressLint("CheckResult")
-    private fun getComment() {
-//        var mask: MaterialDialog? = null
-        ComponentHolder.appComponent.getLoginApi()
-                .getComment(appId = AllTime.userInfo.id, courtTrendId = courtTrend.id)
-                .default()
-                .subscribe {
-                    when {
-                        it.isLoading() -> {
-//                            mask = DialogUtils.showLoading(context = this, title = "提交评论中...")
-                        }
-                        it.isError() -> {
-                            it
-//                            mask?.dismiss()
-                        }
-                        it.isSuccess() -> {
-                            val response = it.response!!
-                            if (!response.flag) {
-//                                ToastUtils.showShort(response.msg)
-                            }
-                        }
-                    }
-                }
-    }
 
 }

@@ -3,6 +3,7 @@ package com.unicorn.juror.login.api
 import com.unicorn.juror.app.Page
 import com.unicorn.juror.app.Response
 import com.unicorn.juror.courtTrend.CourtTrend
+import com.unicorn.juror.courtTrend.comment.Comment
 import com.unicorn.juror.education.court.Court
 import com.unicorn.juror.education.model.Material
 import com.unicorn.juror.login.model.UserInfo
@@ -52,6 +53,6 @@ interface LoginApi {
     fun addComment(@Query("appid") appId: String, @Query("trainingid") courtTrendId: String, @Query("plnr") content: String): Observable<Response<Any>>
 
     @POST("app/plList")
-    fun getComment(@Query("appid") appId: String, @Query("trainingid") courtTrendId: String): Observable<Response<Any>>
+    fun getComment(@Query("page") page: Int, @Query("rows") rows: Int, @Query("msgid") courtTrendId: String): Observable<Response<Page<Comment>>>
 
 }

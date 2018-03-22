@@ -1,3 +1,11 @@
 package com.unicorn.juror.courtTrend.comment
 
-class Comment(val content: String, val courtTrendId: String, val userId: String, val time: Long)
+
+data class Comment(
+        val id: String,
+        val name: String,
+        val msgid: String,
+        val plnr: String,
+        val plsj: Long,
+        val trainingid: Any
+)
