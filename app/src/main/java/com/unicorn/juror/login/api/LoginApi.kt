@@ -7,6 +7,7 @@ import com.unicorn.juror.courtTrend.comment.Comment
 import com.unicorn.juror.education.court.Court
 import com.unicorn.juror.education.model.Material
 import com.unicorn.juror.login.model.UserInfo
+import com.unicorn.juror.personalBusiness.model.Bs
 import com.unicorn.juror.registration.model.PersonalInfo
 import io.reactivex.Observable
 import okhttp3.ResponseBody
@@ -57,6 +58,14 @@ interface LoginApi {
 
     @POST("app/calcxxsc")
     fun addStudyRecord(@Query("appid") appId: String, @Query("trainingid") trainingid: String,
-                       @Query("startTime") startTime: String, @Query("endTime") endTime: String):Observable<Response<Any>>
+                       @Query("startTime") startTime: String, @Query("endTime") endTime: String): Observable<Response<Any>>
+
+    @POST("app/cshzList")
+    fun getAttendReceipt(@Query("page") page: Int, @Query("rows") rows: Int, @Query("appid") appId: String): Observable<Response<Page<Bs>>>
+
+    @POST("app/pstz")
+    fun replyAttend(@Query("state") state: Int, @Query("appid") appId:String,
+                    @Query("id") receiptId: String,@Query("cxrs") cxrs:Int): Observable<Response<Any>>
+
 
 }

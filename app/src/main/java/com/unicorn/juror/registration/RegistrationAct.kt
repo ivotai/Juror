@@ -49,8 +49,8 @@ class RegistrationAct : BaseAct() {
                             .forEach { textView -> textView.background = it }
                 }
 
-        etTelephone.setText("13611840424")
-        etIdentityCard.setText("310109199101190576")
+//        etTelephone.setText("13611840424")
+//        etIdentityCard.setText("310109199101190576")
     }
 
     @SuppressLint("CheckResult")

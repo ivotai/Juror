@@ -15,4 +15,5 @@ class CommentAdapter : BaseQuickAdapter<Comment, BaseViewHolder>(R.layout.item_c
         }
     }
 
+
 }
