@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 
 import com.unicorn.juror.R;
+import com.unicorn.juror.app.Constant;
+
+import org.joda.time.DateTime;
 
 import java.io.File;
 
@@ -22,7 +25,7 @@ public class FileDisplayActivity extends AppCompatActivity {
     String filePath;
 
 
-
+    private String startTime;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +52,7 @@ public class FileDisplayActivity extends AppCompatActivity {
             setFilePath(path);
         }
         mSuperFileView.show();
-
+        startTime = new DateTime().toString("yyyy-MM-dd hh:mm:ss");
     }
 
 
@@ -61,13 +64,17 @@ public class FileDisplayActivity extends AppCompatActivity {
 //            downLoadFromNet(getFilePath(),mSuperFileView2);
 
 //        } else {
-            mSuperFileView2.displayFile(new File(getFilePath()));
+        mSuperFileView2.displayFile(new File(getFilePath()));
 //        }
     }
 
 
     @Override
     public void onDestroy() {
+        String materialId = getIntent().getStringExtra(Constant.MATERIAL_ID);
+        String endTime = new DateTime().toString("yyyy-MM-dd hh:mm:ss");
+        new StudyRecordHelper().addRecord(materialId, startTime, endTime);
+
         super.onDestroy();
 //        TLog.d("FileDisplayActivity-->onDestroy");
         if (mSuperFileView != null) {
@@ -76,10 +83,11 @@ public class FileDisplayActivity extends AppCompatActivity {
     }
 
 
-    public static void show(Context context, String url) {
+    public static void show(Context context, String url, String materialId) {
         Intent intent = new Intent(context, FileDisplayActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("path", url);
+        bundle.putString(Constant.MATERIAL_ID, materialId);
         intent.putExtras(bundle);
         context.startActivity(intent);
 

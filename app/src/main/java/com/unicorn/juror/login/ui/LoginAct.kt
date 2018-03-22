@@ -11,10 +11,10 @@ import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.app.clicks
 import com.unicorn.juror.app.default
-import com.unicorn.juror.util.DialogUtils
 import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.main.MainAct
 import com.unicorn.juror.registration.RegistrationAct
+import com.unicorn.juror.util.DialogUtils
 import kotlinx.android.synthetic.main.act_login.*
 
 class LoginAct : BaseAct() {

@@ -60,7 +60,7 @@ data class Material(
     }
 
     fun open(context: Context) {
-        FileDisplayActivity.show(context, file.path)
+        FileDisplayActivity.show(context, file.path, id)
     }
 
 }

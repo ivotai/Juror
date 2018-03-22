@@ -55,4 +55,8 @@ interface LoginApi {
     @POST("app/plList")
     fun getComment(@Query("page") page: Int, @Query("rows") rows: Int, @Query("msgid") courtTrendId: String): Observable<Response<Page<Comment>>>
 
+    @POST("app/calcxxsc")
+    fun addStudyRecord(@Query("appid") appId: String, @Query("trainingid") trainingid: String,
+                       @Query("startTime") startTime: String, @Query("endTime") endTime: String):Observable<Response<Any>>
+
 }
