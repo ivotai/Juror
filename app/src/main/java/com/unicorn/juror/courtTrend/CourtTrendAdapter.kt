@@ -5,6 +5,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.unicorn.juror.R
 import com.unicorn.juror.app.Constant
+import com.unicorn.juror.courtTrend.comment.CommentAct
 import org.joda.time.DateTime
 
 class CourtTrendAdapter : BaseQuickAdapter<CourtTrend, BaseViewHolder>(R.layout.item_court_trend) {
@@ -16,7 +17,7 @@ class CourtTrendAdapter : BaseQuickAdapter<CourtTrend, BaseViewHolder>(R.layout.
             helper.setText(R.id.tvFbTime, DateTime(fbtime).toString("yyyy-MM-dd"))
 
             helper.setOnClickListener(R.id.item, {
-                Intent(mContext, CourtTrendDetailAct::class.java).apply {
+                Intent(mContext, CommentAct::class.java).apply {
                     putExtra(Constant.COURT_TREND, item)
                     mContext.startActivity(this)
                 }

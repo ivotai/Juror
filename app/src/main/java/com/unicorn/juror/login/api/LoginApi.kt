@@ -48,9 +48,10 @@ interface LoginApi {
     @POST("app/downloadRecordList")
     fun getDownloadTeachingMaterial(@Query("page") page: Int, @Query("rows") rows: Int, @Query("appid") appid: String): Observable<Response<Page<Material>>>
 
-
     @POST("app/addPl")
     fun addComment(@Query("appid") appId: String, @Query("trainingid") courtTrendId: String, @Query("plnr") content: String): Observable<Response<Any>>
 
+    @POST("app/plList")
+    fun getComment(@Query("appid") appId: String, @Query("trainingid") courtTrendId: String): Observable<Response<Any>>
 
 }

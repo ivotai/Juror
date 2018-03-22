@@ -31,7 +31,7 @@
         <activity android:name=".setting.UpdatePwdAct" />
         <activity android:name=".registration.RegistrationAct" />
         <activity android:name=".education.court.CourtAct" />
-        <activity android:name=".courtTrend.CourtTrendDetailAct" />
+        <activity android:name=".courtTrend.comment.CommentAct" />
         <activity android:name=".setting.MoreSettingAct" />
         <activity android:name=".setting.AboutAct" />
         <activity android:name=".tbs.FileDisplayActivity" />
