@@ -7,9 +7,7 @@ import com.unicorn.juror.interactArea.InteractAreaFra
 
 class MainPagerAdapterV(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
-    override fun getItem(position: Int) =
-            if (position == 0) InteractAreaFra()
-            else EducationTrainingFra()
+    override fun getItem(position: Int) = if (position == 0) InteractAreaFra() else EducationTrainingFra()
 
     override fun getCount() = 2
 

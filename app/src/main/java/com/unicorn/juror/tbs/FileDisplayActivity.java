@@ -28,6 +28,20 @@ public class FileDisplayActivity extends AppCompatActivity {
     private String startTime;
 
     @Override
+    protected void onResume() {
+        startTime = new DateTime().toString("yyyy-MM-dd HH:mm:ss");
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        String materialId = getIntent().getStringExtra(Constant.MATERIAL_ID);
+        String endTime = new DateTime().toString("yyyy-MM-dd hh:mm:ss");
+        new StudyRecordHelper().addRecord(materialId, startTime, endTime);
+        super.onStop();
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_display);
@@ -52,7 +66,6 @@ public class FileDisplayActivity extends AppCompatActivity {
             setFilePath(path);
         }
         mSuperFileView.show();
-        startTime = new DateTime().toString("yyyy-MM-dd hh:mm:ss");
     }
 
 
@@ -71,9 +84,6 @@ public class FileDisplayActivity extends AppCompatActivity {
 
     @Override
     public void onDestroy() {
-        String materialId = getIntent().getStringExtra(Constant.MATERIAL_ID);
-        String endTime = new DateTime().toString("yyyy-MM-dd hh:mm:ss");
-        new StudyRecordHelper().addRecord(materialId, startTime, endTime);
 
         super.onDestroy();
 //        TLog.d("FileDisplayActivity-->onDestroy");

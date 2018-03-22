@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import com.unicorn.juror.education.EducationTrainingFra
 import com.unicorn.juror.interactArea.InteractAreaFra
+import com.unicorn.juror.personalBusiness.PersonalBusinessFra
 import com.unicorn.juror.registration.RegistrationFra
 
 class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
@@ -12,7 +13,7 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
         0 -> RegistrationFra()
         1 -> InteractAreaFra()
         2 -> EducationTrainingFra()
-        else -> SimpleFra()
+        else -> PersonalBusinessFra()
     }
 
     override fun getCount() = 4
