@@ -5,7 +5,7 @@ import me.yokeyword.fragmentation.SupportActivity
 
 abstract class BaseAct : SupportActivity() {
 
-    final override fun onCreate(savedInstanceState: Bundle?) {
+     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutID)
         initViews()

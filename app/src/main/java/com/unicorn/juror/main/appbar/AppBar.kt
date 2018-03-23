@@ -14,13 +14,12 @@ import com.unicorn.juror.app.clicks
 class AppBar(context: Context?, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
     private var tvTitle: TextView
-    private var itvAction: IconicsTextView
+     var itvAction: IconicsTextView
 
     init {
         val view = LayoutInflater.from(context).inflate(R.layout.app_bar, this)
         tvTitle = view.findViewById(R.id.tvTitle)
         itvAction = view.findViewById(R.id.itvAction)
-        itvAction.clicks().subscribe { ActivityUtils.getTopActivity().finish() }
     }
 
     fun setTitle(title: String) {
@@ -29,6 +28,7 @@ class AppBar(context: Context?, attrs: AttributeSet?) : FrameLayout(context, att
 
     fun showBackAction(){
         itvAction.visibility = View.VISIBLE
+        itvAction.clicks().subscribe { ActivityUtils.getTopActivity().finish() }
     }
 
 }

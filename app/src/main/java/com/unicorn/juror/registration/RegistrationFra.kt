@@ -6,11 +6,14 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import com.blankj.utilcode.util.ConvertUtils
+import com.hwangjr.rxbus.RxBus
 import com.unicorn.juror.R
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseFra
+import com.unicorn.juror.app.clicks
 import com.unicorn.juror.app.default
 import com.unicorn.juror.dagger.ComponentHolder
+import com.unicorn.juror.main.NavigationCloseEvent
 import com.unicorn.juror.registration.model.PersonalInfo
 import kotlinx.android.synthetic.main.fra_personal_info.*
 
@@ -23,9 +26,17 @@ class RegistrationFra : BaseFra() {
     override fun bindIntent() {
     }
 
+
+    @SuppressLint("CheckResult")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
+
+        if (!AllTime.isVisitor) {
+            appBar.itvAction.text = "{ion-navicon}"
+            appBar.itvAction.visibility = View.VISIBLE
+            appBar.itvAction.clicks().subscribe { RxBus.get().post("closeDrawer", NavigationCloseEvent()) }
+        }
 
         val radii = ConvertUtils.dp2px(5f).toFloat()
 
@@ -34,7 +45,7 @@ class RegistrationFra : BaseFra() {
             setStroke(1, Color.parseColor("#d3d4d2"))
             cornerRadius = radii
         }.let {
-                    listOf(llState,llName, llSex, llNativePlace, llNation, llBirthday, llIdentityCard, llTelephone, llAddress)
+                    listOf(llState, llName, llSex, llNativePlace, llNation, llBirthday, llIdentityCard, llTelephone, llAddress)
                             .forEach { linearLayout -> linearLayout.background = it }
                 }
 
@@ -43,7 +54,7 @@ class RegistrationFra : BaseFra() {
             setStroke(1, Color.parseColor("#d3d4d2"))
             cornerRadii = floatArrayOf(radii, radii, 0f, 0f, 0f, 0f, radii, radii)
         }.let {
-                    listOf(lState,lName, lSex, lNativePlace, lNation, lBirthday, lIdentityCard, lTelephone, lAddress)
+                    listOf(lState, lName, lSex, lNativePlace, lNation, lBirthday, lIdentityCard, lTelephone, lAddress)
                             .forEach { textView -> textView.background = it }
                 }
 

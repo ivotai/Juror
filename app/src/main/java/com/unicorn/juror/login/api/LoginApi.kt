@@ -75,4 +75,9 @@ interface LoginApi {
     fun evaluate(@Query("psyid") psyid: String, @Query("psymc") psymc: String,
                  @Query("pynr") pynr: String, @Query("ajbs") ajbs: String): Observable<Response<Any>>
 
+    @POST("app/saveSsrdqd")
+    fun fackFinding(@Query("psyid") psyid: String, @Query("psymc") psymc: String,
+                    @Query("yjnr") yjnr: String, @Query("ajbs") ajbs: String, @Query("yj") yj: Int): Observable<Response<Any>>
+
+
 }

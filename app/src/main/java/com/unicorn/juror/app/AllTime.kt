@@ -5,6 +5,7 @@ import com.unicorn.juror.login.model.UserInfo
 object AllTime {
 
     lateinit var userInfo: UserInfo
+
     var isVisitor = true
 
     const val R00 = "R00"

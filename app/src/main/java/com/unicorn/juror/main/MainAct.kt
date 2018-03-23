@@ -2,8 +2,13 @@ package com.unicorn.juror.main
 
 import android.content.Intent
 import android.graphics.Color
+import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
+import android.view.Gravity
 import com.afollestad.materialdialogs.MaterialDialog
+import com.hwangjr.rxbus.RxBus
+import com.hwangjr.rxbus.annotation.Subscribe
+import com.hwangjr.rxbus.annotation.Tag
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.IIcon
 import com.mikepenz.ionicons_typeface_library.Ionicons
@@ -63,6 +68,21 @@ class MainAct : BaseAct() {
                     Intent(this, LoginAct::class.java).let { startActivity(it) }
                 }
                 .show()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        RxBus.get().register(this)
+    }
+
+    override fun onDestroy() {
+        RxBus.get().unregister(this)
+        super.onDestroy()
+    }
+
+    @Subscribe(tags = [(Tag("closeDrawer"))])
+    fun closeDrawer(event: NavigationCloseEvent) {
+        drawLayout.openDrawer(Gravity.START)
     }
 
     private fun initViewPager() {
