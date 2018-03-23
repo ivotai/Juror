@@ -1,5 +1,4 @@
-package com.unicorn.juror.interactArea
-
+package com.unicorn.juror.personalBusiness
 
 import android.annotation.SuppressLint
 import android.webkit.WebResourceRequest
@@ -9,12 +8,7 @@ import com.unicorn.juror.R
 import com.unicorn.juror.app.BaseFra
 import kotlinx.android.synthetic.main.fra_website_interact.*
 
-/*
-庭审直播http://www.sxgaofa.cn/ts/index
-公众服务网http://www.sxgaofa.cn
- */
-
-class WebsiteInteractFra : BaseFra() {
+class TrailLiveFra:BaseFra(){
 
     override val layoutID = R.layout.fra_website_interact
 
@@ -23,7 +17,6 @@ class WebsiteInteractFra : BaseFra() {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun bindIntent() {
-//        webView.setWebChromeClient(WebChromeClient())
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                 return false
