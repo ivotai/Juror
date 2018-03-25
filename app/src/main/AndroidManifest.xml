@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:theme">
+        tools:replace="android:theme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".login.ui.LoginAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

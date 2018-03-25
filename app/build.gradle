@@ -43,8 +43,6 @@ dependencies {
     implementation 'com.wada811:android-material-design-colors:3.0.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.31'
     implementation(name: 'pager-bottom-tab-strip', ext: 'aar')
-    //    implementation(name: 'fBReader-release', ext: 'aar')
-    //    implementation(name: 'mupdf', ext: 'aar')
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     implementation 'com.mikepenz:iconics-core:3.0.3@aar'
     implementation 'com.mikepenz:ionicons-typeface:2.0.1.4@aar'

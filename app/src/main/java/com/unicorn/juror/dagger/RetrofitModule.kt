@@ -26,7 +26,6 @@ class RetrofitModule {
     fun provideRetrofit(@Named("baseUrl") baseUrl: String, okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
-//            .addConverterFactory(NobodyConverterFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
