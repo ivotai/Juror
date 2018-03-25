@@ -21,10 +21,11 @@ data class CourtTrend(
         val title: String,
         val filename: String,
         val fileurl: String,
-        val yfilename: String
+        val yfilename: String,
+        val plzs: Int
 ) : Serializable {
 
-    val attachment get() = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename)
+    private val attachment get() = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename)
 
     val attachmentPath get() = attachment.path
 
@@ -58,7 +59,7 @@ data class CourtTrend(
                 )
     }
 
-    fun openAttachment(context: Context){
+    fun openAttachment(context: Context) {
         OpenFileUtil.openFile(attachmentPath).apply {
             context.startActivity(this)
         }
