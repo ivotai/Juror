@@ -15,6 +15,7 @@ class CourtTrendAdapter : BaseQuickAdapter<CourtTrend, BaseViewHolder>(R.layout.
             helper.setText(R.id.tvTitle, title)
             helper.setText(R.id.tvContent, content)
             helper.setText(R.id.tvFbTime, DateTime(fbtime).toString("yyyy-MM-dd"))
+            helper.setText(R.id.tvPlrs, "评论 $plzs")
 
             helper.setOnClickListener(R.id.item, {
                 Intent(mContext, CommentAct::class.java).apply {
