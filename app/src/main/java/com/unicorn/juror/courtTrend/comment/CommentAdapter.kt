@@ -11,7 +11,7 @@ class CommentAdapter : BaseQuickAdapter<Comment, BaseViewHolder>(R.layout.item_c
         item.apply {
             helper.setText(R.id.tvUsername, name)
             helper.setText(R.id.tvContent, plnr)
-            helper.setText(R.id.tvTime, DateTime(plsj).toString("yyyy-MM-dd hh:mm"))
+            helper.setText(R.id.tvTime, DateTime(plsj).toString("yyyy-MM-dd HH:mm"))
         }
     }
 
