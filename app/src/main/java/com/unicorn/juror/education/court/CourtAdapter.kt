@@ -1,9 +1,11 @@
 package com.unicorn.juror.education.court
 
+import android.view.View
 import com.blankj.utilcode.util.ActivityUtils
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.hwangjr.rxbus.RxBus
+import com.mikepenz.iconics.view.IconicsTextView
 import com.unicorn.juror.R
 
 class CourtAdapter : BaseMultiItemQuickAdapter<Court, BaseViewHolder>(null) {
@@ -16,7 +18,7 @@ class CourtAdapter : BaseMultiItemQuickAdapter<Court, BaseViewHolder>(null) {
 //            1 -> ""
 //            2 -> ""
         helper.setText(R.id.tvName, item.dmms);
-        helper.setOnClickListener(R.id.tvName, {
+        helper.setOnClickListener(R.id.itvAction, {
             if (helper.adapterPosition == -1) {
                 return@setOnClickListener
             }
@@ -25,11 +27,16 @@ class CourtAdapter : BaseMultiItemQuickAdapter<Court, BaseViewHolder>(null) {
             } else {
                 expand(helper.adapterPosition)
             }
+            notifyItemChanged(helper.adapterPosition)
         })
-        helper.setOnLongClickListener(R.id.tvName, {
+        helper.getView<IconicsTextView>(R.id.itvAction).visibility =
+                if (item.children.isEmpty()) View.INVISIBLE else View.VISIBLE
+        helper.getView<IconicsTextView>(R.id.itvAction).text =
+                if (item.isExpanded) "{ion-arrow-up-b}" else "{ion-arrow-down-b}"
+
+        helper.setOnClickListener(R.id.item, {
             RxBus.get().post("onCourtSelect", item)
             ActivityUtils.getTopActivity().finish()
-            true
         })
     }
 

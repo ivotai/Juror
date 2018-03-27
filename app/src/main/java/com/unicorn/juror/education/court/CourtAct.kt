@@ -7,6 +7,7 @@ import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.BaseAct
 import com.unicorn.juror.app.default
 import com.unicorn.juror.dagger.ComponentHolder
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
 import kotlinx.android.synthetic.main.act_court.*
 
 class CourtAct : BaseAct() {
@@ -26,6 +27,11 @@ class CourtAct : BaseAct() {
             layoutManager = LinearLayoutManager(context)
             courtAdapter.bindToRecyclerView(this)
         }
+        recyclerView.addItemDecoration(
+                HorizontalDividerItemDecoration.Builder(this)
+                        .colorResId(R.color.md_grey_400)
+                        .size(1)
+                        .build())
     }
 
     override fun bindIntent() {

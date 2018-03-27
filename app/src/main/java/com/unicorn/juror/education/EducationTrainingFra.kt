@@ -33,7 +33,9 @@ class EducationTrainingFra : BaseFra() {
 
         tabLayout.getTabAt(0)!!.text = "教材库"
 
-        appBar.setOnClickListener {
+        appBar.itvAction2.visibility = View.VISIBLE
+        appBar.itvAction2.text = "{ion-gear-a}"
+        appBar.itvAction2.setOnClickListener {
             Intent(context, CourtAct::class.java).apply {
                 startActivity(this)
             }

@@ -15,11 +15,13 @@ class AppBar(context: Context?, attrs: AttributeSet?) : FrameLayout(context, att
 
     private var tvTitle: TextView
      var itvAction: IconicsTextView
+    var itvAction2: IconicsTextView
 
     init {
         val view = LayoutInflater.from(context).inflate(R.layout.app_bar, this)
         tvTitle = view.findViewById(R.id.tvTitle)
         itvAction = view.findViewById(R.id.itvAction)
+        itvAction2 = view.findViewById(R.id.itvAction2)
     }
 
     fun setTitle(title: String) {

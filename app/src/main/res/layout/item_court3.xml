@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
+    android:background="?attr/selectableItemBackground"
+    android:id="@+id/item"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:layout_marginLeft="32dp"
+        android:paddingLeft="64dp"
+        android:text="你好"
+        android:textSize="18dp"
         android:id="@+id/tvName"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
 
-</android.support.constraint.ConstraintLayout>
+    <com.mikepenz.iconics.view.IconicsTextView
+        android:id="@+id/itvAction"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:text="{ion-arrow-down-b}"
+        android:textColor="@color/md_black"
+        android:textSize="30dp"
+        />
+
+</LinearLayout>
