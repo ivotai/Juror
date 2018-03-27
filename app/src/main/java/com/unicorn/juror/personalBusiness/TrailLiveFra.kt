@@ -23,7 +23,7 @@ class TrailLiveFra:BaseFra(){
             }
         }
         webView.settings.javaScriptEnabled = true
-        webView.loadUrl("https://xa.fang.lianjia.com/?utm_source=baidu_xf&utm_medium=pinzhuan&utm_term=biaoti&utm_content=biaotimiaoshu&utm_campaign=sousuo")
+        webView.loadUrl("http://www.sxgaofa.cn/ts/index")
     }
 
     override fun onBackPressedSupport(): Boolean {
