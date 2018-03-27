@@ -2,7 +2,6 @@
 <com.loopeer.shadow.ShadowView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:foreground="?attr/selectableItemBackground"
@@ -11,78 +10,221 @@
     app:shadowMarginRight="16dp"
     app:shadowRadius="2dp">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/md_grey_700"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvAhqc"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="陪审员任命通知"
-            android:textColor="@color/md_black"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpUsage" />
+            android:layout_marginLeft="1px"
+            android:layout_marginTop="1px"
+            android:layout_marginRight="1px"
+            android:background="@color/md_white"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvSqrmc"
+            <com.mikepenz.iconics.view.IconicsTextView
+                android:id="@+id/itvLaah"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="{ion-ionic}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="立案案号：(2018)陕0102民初17号"
+                android:textColor="@color/md_black"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="现抽选XXX为案件XXX人民陪审员，请与2018年2月24日准时到西安市高级人民法院参见庭审"
-            android:textColor="@color/md_black"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAhqc"
-            tools:ignore="SpUsage" />
+            android:layout_marginLeft="1px"
+            android:layout_marginTop="1px"
+            android:layout_marginRight="1px"
+            android:background="@color/md_white"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvSqsj"
-            android:layout_width="wrap_content"
+            <com.mikepenz.iconics.view.IconicsTextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="{ion-ios-paper-outline}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tvLaay"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="房屋买卖合同纠纷"
+                android:textColor="@color/md_black"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="2016-3-18"
-            android:textColor="@color/md_grey_500"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSqrmc"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="HardcodedText,SpUsage" />
+            android:layout_marginLeft="1px"
+            android:layout_marginTop="1px"
+            android:layout_marginRight="1px"
+            android:background="@color/md_white"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnAgree"
-            android:layout_width="wrap_content"
+            <com.mikepenz.iconics.view.IconicsTextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="{ion-ios-time-outline}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tvLasj"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="立案时间: 2018-01-01"
+                android:textColor="@color/md_black"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="确认出庭"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnDisagree" />
+            android:layout_marginLeft="1px"
+            android:layout_marginTop="1px"
+            android:layout_marginRight="1px"
+            android:background="@color/md_white"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnDisagree"
-            android:layout_width="wrap_content"
+            <com.mikepenz.iconics.view.IconicsTextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="{ion-android-contact}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tvCbfg"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="承办法官: 张法官"
+                android:textColor="@color/md_black"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="确认不出庭"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSqsj" />
+            android:layout_marginLeft="1px"
+            android:layout_marginTop="1px"
+            android:layout_marginRight="1px"
+            android:background="@color/md_white"
+            android:orientation="horizontal">
 
-    </android.support.constraint.ConstraintLayout>
+            <com.mikepenz.iconics.view.IconicsTextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="{ion-ios-browsers-outline}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tvTc"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="承办法官: 张法官"
+                android:textColor="@color/md_black"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="1px"
+            android:layout_marginTop="1px"
+            android:layout_marginRight="1px"
+            android:layout_marginBottom="1px"
+            android:background="@color/md_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:background="#1E95CD"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="确认出庭"
+                android:textColor="@color/md_white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/btnDisagree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="48dp"
+                android:layout_weight="1"
+                android:background="#F04444"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="确认不出庭"
+                android:textColor="@color/md_white"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--<Button-->
+    <!--android:id="@+id/btnAgree"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:text="确认出庭"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/btnDisagree" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/btnDisagree"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginBottom="16dp"-->
+    <!--android:text="确认不出庭"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/tvSqsj" />-->
+
 
 </com.loopeer.shadow.ShadowView>
