@@ -66,20 +66,21 @@ class LoginAct : BaseAct() {
                         }
                         it.isError() -> {
                             mask?.dismiss()
-                            Intent(this, MainAct::class.java).apply {
-                                startActivity(this)
-                            }
+//                            Intent(this, MainAct::class.java).apply {
+//                                startActivity(this)
+//                            }
                         }
                         it.isSuccess() -> {
                             mask?.dismiss()
                             val response = it.response!!
+//                            ToastUtils.showShort(response.msg)
                             if (!response.flag) {
-//                                ToastUtils.showShort(response.msg)
                             } else {
                                 AllTime.userInfo = response.data
                                 AllTime.isVisitor = false
                                 Intent(this, MainAct::class.java).apply {
                                     startActivity(this)
+                                    finish()
                                 }
                             }
                         }

@@ -5,6 +5,7 @@ import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.hwangjr.rxbus.RxBus
 import com.unicorn.juror.R
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.default
@@ -66,7 +67,7 @@ class AttendReceiptAdapter : BaseQuickAdapter<Bs, BaseViewHolder>(R.layout.item_
                         }
                         it.isSuccess() -> {
                             mask?.dismiss()
-
+                            RxBus.get().post("refreshAttendReceipt", Any())
                         }
                     }
                 }

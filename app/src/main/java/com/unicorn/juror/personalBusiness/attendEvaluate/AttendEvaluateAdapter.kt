@@ -10,6 +10,7 @@ import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.hwangjr.rxbus.RxBus
 import com.unicorn.juror.R
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.default
@@ -34,6 +35,11 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
             btnEvaluate.visibility = if (item.ispy == 0) View.VISIBLE else View.INVISIBLE
             val btnFactFinding = helper.getView<TextView>(R.id.btnFactFinding)
             btnFactFinding.visibility = if (item.isssrd == 0) View.VISIBLE else View.INVISIBLE
+//            if (btnEvaluate.visibility == View.INVISIBLE &&
+//                    btnFactFinding.visibility == View.INVISIBLE) {
+//                val ll = helper.getView<LinearLayout>(R.id.llBtn)
+//                ll.visibility = View.GONE
+//            }
 
             setOnClickListener(R.id.btnEvaluate, { evaluate(item) })
             setOnClickListener(R.id.btnFactFinding, { factFinding(item) })
@@ -74,7 +80,7 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
                         }
                         it.isSuccess() -> {
                             mask?.dismiss()
-
+                            RxBus.get().post("refreshAttendEvaluate", Any())
                         }
                     }
                 }
@@ -138,6 +144,7 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
                             mask?.dismiss()
                         }
                         it.isSuccess() -> {
+                            RxBus.get().post("refreshAttendEvaluate", Any())
                             mask?.dismiss()
                         }
                     }
