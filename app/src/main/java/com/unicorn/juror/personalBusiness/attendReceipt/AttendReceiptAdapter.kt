@@ -11,14 +11,18 @@ import com.unicorn.juror.app.default
 import com.unicorn.juror.dagger.ComponentHolder
 import com.unicorn.juror.personalBusiness.model.Bs
 import com.unicorn.juror.util.DialogUtils
+import org.joda.time.DateTime
 
 class AttendReceiptAdapter : BaseQuickAdapter<Bs, BaseViewHolder>(R.layout.item_attend_receipt) {
 
     override fun convert(helper: BaseViewHolder, item: Bs) {
         helper.apply {
-            //            setText(R.id.tvAhqc, "案号全称:${item.ahqc}")
-//            setText(R.id.tvSqrmc, "申请人:${item.sqrmc}")
-//            setText(R.id.tvSqsj, "申请时间:${DateTime(item.sqtime).toString("yyyy-MM-dd")}")
+            setText(R.id.tvLaah, "立案案号: ${item.ahqc}")
+            setText(R.id.tvLaay, "案号案由: ${item.laaymc}")
+            setText(R.id.tvLasj, "申请时间: ${item.larq}")
+            setText(R.id.tvCbfg, "申请时间: ${item.cbrmc}")
+            setText(R.id.tvTc, "庭次: ${item.ftmc} ${DateTime(item.kssj).toString("yyyy-MM-dd HH:mm")}—" +
+                    "${DateTime(item.jssj).toString("HH:mm")}")
             // 5确认出庭
             setOnClickListener(R.id.btnAgree, {
                 //                replyAttend(5, item) }
@@ -39,11 +43,7 @@ class AttendReceiptAdapter : BaseQuickAdapter<Bs, BaseViewHolder>(R.layout.item_
                         .title("确认不出庭")
                         .positiveText("确认")
                         .negativeText("取消")
-                        .onPositive(object : MaterialDialog.SingleButtonCallback {
-                            override fun onClick(dialog: MaterialDialog, which: DialogAction) {
-                                replyAttend(4, item)
-                            }
-                        }).show()
+                        .onPositive { dialog, which -> replyAttend(4, item) }.show()
             })
         }
     }

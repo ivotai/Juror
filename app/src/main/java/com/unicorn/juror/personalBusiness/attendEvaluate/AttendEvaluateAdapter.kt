@@ -3,7 +3,9 @@ package com.unicorn.juror.personalBusiness.attendEvaluate
 import android.annotation.SuppressLint
 import android.text.InputType
 import android.view.View
-import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioGroup
+import android.widget.TextView
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -21,21 +23,22 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
 
     override fun convert(helper: BaseViewHolder, item: Bs2) {
         helper.apply {
-            setText(R.id.tvAhqc, "案号全称:${item.ahqc}")
-//            setText(R.id.tvLaaymc, "申请人:${item.laaymc}")
-            setText(R.id.tvKssj, "申请时间:${DateTime(item.kssj).toString("yyyy-MM-dd")}")
+            setText(R.id.tvLaah, "立案案号: ${item.ahqc}")
+            setText(R.id.tvLaay, "案号案由: ${item.laaymc}")
+            setText(R.id.tvLasj, "申请时间: ${item.larq}")
+            setText(R.id.tvCbfg, "申请时间: ${item.cbrmc}")
+            setText(R.id.tvTc, "庭次: ${item.ftmc} ${DateTime(item.kssj).toString("yyyy-MM-dd HH:mm")}—" +
+                    "${DateTime(item.jssj).toString("HH:mm")}")
 
-            val btnEvaluate = helper.getView<Button>(R.id.btnEvaluate)
+            val btnEvaluate = helper.getView<TextView>(R.id.btnEvaluate)
             btnEvaluate.visibility = if (item.ispy == 0) View.VISIBLE else View.INVISIBLE
-            val btnFactFinding = helper.getView<Button>(R.id.btnFactFinding)
+            val btnFactFinding = helper.getView<TextView>(R.id.btnFactFinding)
             btnFactFinding.visibility = if (item.isssrd == 0) View.VISIBLE else View.INVISIBLE
-
 
             setOnClickListener(R.id.btnEvaluate, { evaluate(item) })
             setOnClickListener(R.id.btnFactFinding, { factFinding(item) })
         }
     }
-
 
     var input: String = ""
     private fun evaluate(item: Bs2) {
@@ -77,31 +80,53 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
                 }
     }
 
-    var input2: String = ""
+    lateinit var etAdvice: EditText
+    lateinit var radioGroup: RadioGroup
+
     private fun factFinding(item: Bs2) {
-        MaterialDialog.Builder(mContext)
+        val wrapInScrollView = true
+        val dialog = MaterialDialog.Builder(mContext)
                 .title("事实认定")
-                .inputType(InputType.TYPE_CLASS_TEXT)
-                .input("输入意见内容", "", MaterialDialog.InputCallback { dialog, input ->
-                    this.input2 = input.toString()
-                })
-                .onPositive(object : MaterialDialog.SingleButtonCallback {
-                    override fun onClick(dialog: MaterialDialog, which: DialogAction) {
-                        factFinding_(input2, item.ajbs)
+                .customView(R.layout.custom_dialog, wrapInScrollView)
+                .positiveText("确定")
+                .onPositive { dialog, which ->
+                    val yj = when (radioGroup.checkedRadioButtonId) {
+                        R.id.rbYes -> 0
+                        R.id.rbNo -> 1
+                        else -> 2
                     }
-                })
+                    factFinding_(yj, etAdvice.text.toString(), item.ajbs)
+                }
                 .show()
+
+        etAdvice = dialog.customView!!.findViewById<EditText>(R.id.etAdvice)
+        radioGroup = dialog.customView!!.findViewById<RadioGroup>(R.id.radioGroup)
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            etAdvice.visibility = if (checkedId == R.id.rbYes) View.GONE else View.VISIBLE
+        }
+//        MaterialDialog.Builder(mContext)
+//                .title("事实认定")
+//                .inputType(InputType.TYPE_CLASS_TEXT)
+//                .input("输入意见内容", "", MaterialDialog.InputCallback { dialog, input ->
+//                    this.input2 = input.toString()
+//                })
+//                .onPositive(object : MaterialDialog.SingleButtonCallback {
+//                    override fun onClick(dialog: MaterialDialog, which: DialogAction) {
+//                        factFinding_(input2, item.ajbs)
+//                    }
+//                })
+//                .show()
     }
 
 
     @SuppressLint("CheckResult")
-    private fun factFinding_(yjnr: String, ajbs: String) {
+    private fun factFinding_(yj: Int, yjnr: String, ajbs: String) {
         // todo 意见：认定，不认定，部分认定
         // todo 认定 无内容
         var mask: MaterialDialog? = null
         ComponentHolder.appComponent.getLoginApi()
                 .fackFinding(psyid = AllTime.userInfo.id, psymc = AllTime.userInfo.userName,
-                        yjnr = yjnr, ajbs = ajbs, yj = 1
+                        yjnr = yjnr, ajbs = ajbs, yj = yj
                 )
                 .default()
                 .subscribe {

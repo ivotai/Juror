@@ -1,14 +1,20 @@
 package com.unicorn.juror.personalBusiness.model
 
-
 data class Bs(
-		val state: Int,
-		val ajbs: String,
-		val cxrs: Int,
 		val id: String,
-		val sqrmc: String,	// 申请人
-		val cxtime: Long,	// 抽选时间
-		val sqtime: Long,	// 申请时间
-		val cbrmc: String,	// 承办人
-		val ahqc: String	// 案号全称
+		val fydm: String,
+		val ahqc: String,
+		val ajbs: String,
+		val laaymc: String,
+		val larq: String,
+		val cbrmc: String,
+		val ftmc: String,
+		val fymc: String,
+		val kssj: Long,
+		val jssj: Long,
+		val state: Int,
+		val cxrs: Int,
+		val sqrmc: String,
+		val cxtime: Long,
+		val sqtime: Long
 )
