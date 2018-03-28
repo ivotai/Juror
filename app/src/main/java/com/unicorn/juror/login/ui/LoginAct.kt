@@ -23,8 +23,8 @@ class LoginAct : BaseAct() {
 
     override fun initViews() {
         appBar.setTitle("登录")
-        etUsername.setText("61010019600501023x")
-        etPassword.setText("1234")
+//        etUsername.setText("61010019600501023x")
+//        etPassword.setText("1234")
         setIcons()
         tvVisitor.paint.flags = Paint.UNDERLINE_TEXT_FLAG
     }

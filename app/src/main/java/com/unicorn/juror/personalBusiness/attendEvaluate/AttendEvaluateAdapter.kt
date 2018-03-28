@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.TextView
-import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -52,13 +51,18 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
                 .title("我的评议")
                 .inputType(InputType.TYPE_CLASS_TEXT)
                 .input("输入评议内容", "", MaterialDialog.InputCallback { dialog, input ->
-                    this.input = input.toString()
+//                    this.input = input.toString()
+                        evaluate_(input.toString(), item.ajbs)
+
+//                    ToastUtils.showShort(input)
+
                 })
-                .onPositive(object : MaterialDialog.SingleButtonCallback {
-                    override fun onClick(dialog: MaterialDialog, which: DialogAction) {
-                        evaluate_(input, item.ajbs)
-                    }
-                })
+//                .onPositive(object : MaterialDialog.SingleButtonCallback {
+//                    override fun onClick(dialog: MaterialDialog, which: DialogAction) {
+//                        ToastUtils.showShort(input)
+//                        evaluate_(input, item.ajbs)
+//                    }
+//                })
                 .show()
     }
 
@@ -97,10 +101,11 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
                 .positiveText("确定")
                 .onPositive { dialog, which ->
                     val yj = when (radioGroup.checkedRadioButtonId) {
-                        R.id.rbYes -> 0
-                        R.id.rbNo -> 1
-                        else -> 2
+                        R.id.rbYes -> 1
+                        R.id.rbNo -> 2
+                        else -> 3
                     }
+//                    ToastUtils.showShort(yj.toString())
                     factFinding_(yj, etAdvice.text.toString(), item.ajbs)
                 }
                 .show()
