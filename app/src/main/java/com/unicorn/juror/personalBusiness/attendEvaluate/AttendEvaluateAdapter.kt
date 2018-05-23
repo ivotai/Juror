@@ -26,9 +26,8 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
             setText(R.id.tvLaah, "立案案号: ${item.ahqc}")
             setText(R.id.tvLaay, "案号案由: ${item.laaymc}")
             setText(R.id.tvLasj, "申请时间: ${item.larq}")
-            setText(R.id.tvCbfg, "申请时间: ${item.cbrmc}")
-            setText(R.id.tvTc, "庭次: ${item.ftmc} ${DateTime(item.kssj).toString("yyyy-MM-dd HH:mm")}—" +
-                    "${DateTime(item.jssj).toString("HH:mm")}")
+            setText(R.id.tvCbfg, "申请人: ${item.cbrmc}")
+            setText(R.id.tvTc, "庭次: ${item.ftmc} ${DateTime(item.kssj).toString("yyyy-MM-dd HH:mm")}—" + DateTime(item.jssj).toString("HH:mm"))
 
             val btnEvaluate = helper.getView<TextView>(R.id.btnEvaluate)
             btnEvaluate.visibility = if (item.ispy == 0) View.VISIBLE else View.INVISIBLE
