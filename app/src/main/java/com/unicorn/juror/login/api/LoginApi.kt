@@ -73,7 +73,14 @@ interface LoginApi {
 
     @POST("app/savePy")
     fun evaluate(@Query("psyid") psyid: String, @Query("psymc") psymc: String,
-                 @Query("pynr") pynr: String, @Query("ajbs") ajbs: String): Observable<Response<Any>>
+                 @Query("pynr") pynr: String, @Query("ajbs") ajbs: String,
+
+                 @Query("fgtsly") fgtsly: Int, @Query("fgtsjl") fgtsjl: Int, @Query("tqjy") tqjy: Int,
+                 @Query("dpsyydnl") dpsyydnl: Int, @Query("spywnl") spywnl: Int, @Query("ljzl") ljzl: Int,
+
+                 @Query("sflyyjhjy") sflyyjhjy: String, @Query("spjlyjhjy") spjlyjhjy: String, @Query("tsjyyjhjy") tsjyyjhjy: String,
+                 @Query("dpsyydnlyjhjy") dpsyydnlyjhjy: String, @Query("spywnlyjhjy") spywnlyjhjy: String, @Query("ljzlyjhjy") ljzlyjhjy: String
+    ): Observable<Response<Any>>
 
     @POST("app/saveSsrdqd")
     fun fackFinding(@Query("psyid") psyid: String, @Query("psymc") psymc: String,

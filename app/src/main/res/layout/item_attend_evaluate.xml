@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.loopeer.shadow.ShadowView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -133,34 +134,48 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="1px"
             android:layout_marginTop="1px"
             android:layout_marginRight="1px"
-            android:background="@color/md_white"
-            android:orientation="horizontal">
+            android:background="@color/md_white">
 
             <com.mikepenz.iconics.view.IconicsTextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/iivTc"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:gravity="center"
                 android:text="{ion-ios-browsers-outline}"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvTc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="承办法官: 张法官"
                 android:textColor="@color/md_black"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iivTc"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/llBtn"

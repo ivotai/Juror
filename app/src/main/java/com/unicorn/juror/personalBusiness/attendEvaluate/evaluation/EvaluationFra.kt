@@ -14,8 +14,7 @@ import kotlinx.android.synthetic.main.fra_evaluation.*
 
 class EvaluationFra : BaseFra() {
 
-    override val layoutID: Int
-        get() = R.layout.fra_evaluation
+    override val layoutID = R.layout.fra_evaluation
 
     // ================================ color ================================
 
@@ -64,7 +63,7 @@ class EvaluationFra : BaseFra() {
     }
 
     private fun select(index: Int) {
-        option.result = index
+        option.result = index+1
         for (rtv in rtvList) {
             val indexTemp = rtvList.indexOf(rtv)
             if (indexTemp == index) {

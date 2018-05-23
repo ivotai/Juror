@@ -31,7 +31,7 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
             setText(R.id.tvTc, "庭次: ${item.ftmc} ${DateTime(item.kssj).toString("yyyy-MM-dd HH:mm")}—" + DateTime(item.jssj).toString("HH:mm"))
 
             val btnEvaluate = helper.getView<TextView>(R.id.btnEvaluate)
-//            btnEvaluate.visibility = if (item.ispy == 0) View.VISIBLE else View.INVISIBLE
+            btnEvaluate.visibility = if (item.ispy == 0) View.VISIBLE else View.INVISIBLE
             val btnFactFinding = helper.getView<TextView>(R.id.btnFactFinding)
             btnFactFinding.visibility = if (item.isssrd == 0) View.VISIBLE else View.INVISIBLE
 //            if (btnEvaluate.visibility == View.INVISIBLE &&
@@ -47,7 +47,7 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
 
     private fun evaluate(item: Bs2) {
         Intent(mContext, EvaluationAct::class.java)
-                .apply { }
+                .apply { putExtra("ajbs",item.ajbs)}
                 .let { mContext.startActivity(it) }
 //        MaterialDialog.Builder(mContext)
 //                .title("我的评议")
@@ -56,30 +56,6 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
 //                        evaluate_(input.toString(), item.ajbs)
 //                })
 //                .show()
-    }
-
-    @SuppressLint("CheckResult")
-    private fun evaluate_(pynr: String, ajbs: String) {
-        var mask: MaterialDialog? = null
-        ComponentHolder.appComponent.getLoginApi()
-                .evaluate(psyid = AllTime.userInfo.id, psymc = AllTime.userInfo.userName,
-                        pynr = pynr, ajbs = ajbs
-                )
-                .default()
-                .subscribe {
-                    when {
-                        it.isLoading() -> {
-                            mask = DialogUtils.showLoading(context = mContext, title = "提交中...")
-                        }
-                        it.isError() -> {
-                            mask?.dismiss()
-                        }
-                        it.isSuccess() -> {
-                            mask?.dismiss()
-                            RxBus.get().post("refreshAttendEvaluate", Any())
-                        }
-                    }
-                }
     }
 
     lateinit var etAdvice: EditText
