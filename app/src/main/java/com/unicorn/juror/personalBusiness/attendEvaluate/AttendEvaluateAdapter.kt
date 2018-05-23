@@ -1,7 +1,7 @@
 package com.unicorn.juror.personalBusiness.attendEvaluate
 
 import android.annotation.SuppressLint
-import android.text.InputType
+import android.content.Intent
 import android.view.View
 import android.widget.EditText
 import android.widget.RadioGroup
@@ -14,6 +14,7 @@ import com.unicorn.juror.R
 import com.unicorn.juror.app.AllTime
 import com.unicorn.juror.app.default
 import com.unicorn.juror.dagger.ComponentHolder
+import com.unicorn.juror.personalBusiness.attendEvaluate.evaluation.EvaluationAct
 import com.unicorn.juror.personalBusiness.model.Bs2
 import com.unicorn.juror.util.DialogUtils
 import org.joda.time.DateTime
@@ -30,7 +31,7 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
             setText(R.id.tvTc, "庭次: ${item.ftmc} ${DateTime(item.kssj).toString("yyyy-MM-dd HH:mm")}—" + DateTime(item.jssj).toString("HH:mm"))
 
             val btnEvaluate = helper.getView<TextView>(R.id.btnEvaluate)
-            btnEvaluate.visibility = if (item.ispy == 0) View.VISIBLE else View.INVISIBLE
+//            btnEvaluate.visibility = if (item.ispy == 0) View.VISIBLE else View.INVISIBLE
             val btnFactFinding = helper.getView<TextView>(R.id.btnFactFinding)
             btnFactFinding.visibility = if (item.isssrd == 0) View.VISIBLE else View.INVISIBLE
 //            if (btnEvaluate.visibility == View.INVISIBLE &&
@@ -44,25 +45,17 @@ class AttendEvaluateAdapter : BaseQuickAdapter<Bs2, BaseViewHolder>(R.layout.ite
         }
     }
 
-    var input: String = ""
     private fun evaluate(item: Bs2) {
-        MaterialDialog.Builder(mContext)
-                .title("我的评议")
-                .inputType(InputType.TYPE_CLASS_TEXT)
-                .input("输入评议内容", "", MaterialDialog.InputCallback { dialog, input ->
-//                    this.input = input.toString()
-                        evaluate_(input.toString(), item.ajbs)
-
-//                    ToastUtils.showShort(input)
-
-                })
-//                .onPositive(object : MaterialDialog.SingleButtonCallback {
-//                    override fun onClick(dialog: MaterialDialog, which: DialogAction) {
-//                        ToastUtils.showShort(input)
-//                        evaluate_(input, item.ajbs)
-//                    }
+        Intent(mContext, EvaluationAct::class.java)
+                .apply { }
+                .let { mContext.startActivity(it) }
+//        MaterialDialog.Builder(mContext)
+//                .title("我的评议")
+//                .inputType(InputType.TYPE_CLASS_TEXT)
+//                .input("输入评议内容", "", MaterialDialog.InputCallback { dialog, input ->
+//                        evaluate_(input.toString(), item.ajbs)
 //                })
-                .show()
+//                .show()
     }
 
     @SuppressLint("CheckResult")

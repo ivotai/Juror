@@ -36,6 +36,7 @@
         <activity android:name=".setting.MoreSettingAct" />
         <activity android:name=".setting.AboutAct" />
         <activity android:name=".tbs.FileDisplayActivity" />
+        <activity android:name=".personalBusiness.attendEvaluate.evaluation.EvaluationAct"/>
     </application>
 
 </manifest>
